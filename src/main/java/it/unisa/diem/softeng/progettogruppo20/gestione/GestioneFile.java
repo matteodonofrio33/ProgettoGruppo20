@@ -5,8 +5,6 @@
  */
 package it.unisa.diem.softeng.progettogruppo20.gestione;
 
-import gestione.ListaContatti;
-
 /**
  *
  * @author luigicocco
