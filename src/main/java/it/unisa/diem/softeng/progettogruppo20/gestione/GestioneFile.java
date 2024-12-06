@@ -25,7 +25,7 @@ public class GestioneFile {
      * @brief salva la lista dei contatti in un file
      * @pre listaContatti non dev'essere vuota
      * @post viene creato il file(con nome filename) contente la listaContatti
-     * @invariant la lista passata non è modificata
+     * @invariant la lista non viene modificata
      * 
      * @param[in] listaContatti è la lista che dev'essere salvata nel file
      */
@@ -36,8 +36,8 @@ public class GestioneFile {
     /**
      * @brief importa dal file denominato filename la listaContatti
      * @pre il file denominato filename non dev'essere vuoto
-     * @post deve aver importato la listaContatti dal file
-     * @return ritorna la listaContatti di ListaContatti
+     * @post si otterrà un oggetto di ListaContatti
+     * @return ritorna un oggetto di ListaContatti
      */
     public ListaContatti importa(){
         

@@ -20,7 +20,7 @@ public class Contatto implements Comparable{
     /**
      * @brief Crea un oggetto di tipo Contatto
      * 
-     * See also: Telefono(), Eamil(), aggiungiDato()
+     * See also: Telefono(), Email(), aggiungiDato()
      * 
      * Per email e telefono chiama aggiungiDato(..) 
      * 
@@ -47,12 +47,9 @@ public class Contatto implements Comparable{
         
     }
     
+
     
-    /**
-     * @brief confronta in base al nome o cognome e telefono ed email
-     * @param[in] o è l'oggetto da confrontare con l'istanza corrente
-     * @return 
-     */
+    
     @Override
     public int compareTo(Object o){
         return 0;
