@@ -9,12 +9,12 @@ import it.unisa.diem.softeng.progettogruppo20.interfaccia.Gui;
 
 /**
  * @file Rubrica.java
- * @brief Si occupa di salvare la lista dei contatti e richiamare il metodo
+ * @brief Si occupa della visualizzazione della rubrica e di richiamare il metodo
  * iniziale per avviare il programma.
  *
  * Questa classe contiene un attributo di tipo ListaContatti per contenere la
- * lista di tutti i contatti. Una lista di tipo ListaContatti che contiene solo
- * la lista che ci restituisce il metodo cercaContatto.
+ * lista di tutti i contatti, una lista di tipo ListaContatti che contiene solo
+ * la lista che ci restituisce il metodo cercaContatto() e un riferimento a un oggetto gui.
  *
  * @author Luigi Contaldo
  * @data December 06, 2024
@@ -35,6 +35,8 @@ public class Rubrica {
      * @param[in] trovati Riferimento all'oggetto ListaContatti. Contiene tutti
      * i contatti restituiti dalla funzione cercaContatto().
      * @param[in] gui Riferimento all'oggetto Gui.
+     * 
+     * @see cercaContatto() 
      *
      */
     public Rubrica(ListaContatti lista, ListaContatti trovati, Gui gui) {
@@ -47,11 +49,6 @@ public class Rubrica {
     /**
      * @brief Invoca tutti i metodi necessari per la visualizzazione della
      * rubrica.
-     *
-     * @pre La scena principale deve esistere e deve essere vuota.
-     *
-     * @post Invoca i metodi necessari per visualizzare correttamente tutta la
-     * schermata della rubrica.
      */
     private void vista() {
 
