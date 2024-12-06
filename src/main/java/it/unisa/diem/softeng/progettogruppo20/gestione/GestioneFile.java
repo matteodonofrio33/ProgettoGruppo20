@@ -5,7 +5,7 @@
  */
 package it.unisa.diem.softeng.progettogruppo20.gestione;
 
-import gestione.ListaContatti;
+import it.unisa.diem.softeng.progettogruppo20.gestione.ListaContatti;
 
 /**
  *
