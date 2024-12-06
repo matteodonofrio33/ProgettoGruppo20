@@ -13,7 +13,7 @@ import java.util.TreeSet;
  * @file ListaContatti.java
  * @brief Classe che contiene i contatti organizzati in una Collection Set.
  *
- * questa classe contiene una lista di contatti organizzati in una Collection di
+ * Questa classe contiene una lista di contatti organizzati in una Collection di
  * tipo TreeSet<Contatto> e i metodi necessari a svolgere operazioni su di essa.
  *
  * @author Fabrizio D'Errico
@@ -44,19 +44,22 @@ public class ListaContatti {
      * @brief Metodo che aggiunge un contatto alla lista.
      *
      * Il metodo verifica che non sia presente già un contatto con le stesse
-     * info, scorre la lista e ,nel caso in cui non fosse presente un duplicato,
+     * informazioni, scorre la lista e ,nel caso in cui il riscontro fosse positivo,
      * viene aggiunto il nuovo contatto.
      *
-     * @pre Il contatto non deve essere già presente in rubrica.
+     * @pre Il contatto non deve essere già presente in rubrica 
+     * @pre nome o cognome non devono essere nulli.
      * @post Il contatto viene aggiunto.
      *
      * @param[in] nome Eventuale nome del contatto che si vuole aggiungere.
-     * @param[in] cognome Eventuale cognome del contatto che si vuole aggiungere.
-     * @param[in] telefono Eventuale numero di telefono del contatto che si vuole
+     * @param[in] cognome Eventuale cognome del contatto che si vuole
      * aggiungere.
-     * @param[in] email Eventuale indirizzo email del contatto che si vuole aggiungere.
+     * @param[in] telefono Eventuale numero di telefono del contatto che si
+     * vuole aggiungere.
+     * @param[in] email Eventuale indirizzo email del contatto che si vuole
+     * aggiungere.
      *
-     * @return true o false
+     * @return true quando l'aggiunta ha esito positivo, altrimenti false
      */
     public boolean aggiungiContatto(String nome, String cognome, String telefono, String email) {
 
@@ -73,26 +76,27 @@ public class ListaContatti {
      * @post Il contatto viene restituito.
      * @invariant La lista non deve essere modificata.
      *
-     * @param[in] nome Nome del contatto da cercare.
-     * @param[in] cognome Cognome del contatto da cercare.
-     * @return array di contatti.
+     * @param[in] nome Nome o sottostringa del contatto da cercare.
+     * @param[in] cognome Cognome o sottostringa del contatto da cercare.
+     * @return lista di contatti.
      */
     public ListaContatti cercaContatto(String nome, String cognome) {
         return null;
     }
 
     /**
-     * @brief Rimuovi un contatto.
+     * @brief Rimuove un contatto.
      *
-     * Il metodo permette di rimuovere un contatto dalla lista tramite remove, dopo aver verificato che il contatto sia effettivamente presente.
+     * Il metodo permette di rimuovere un contatto dalla lista tramite remove,
+     * dopo aver verificato che il contatto sia effettivamente presente.
      *
      * @pre Il contatto deve essere presente nella lista.
      * @post Il contatto viene rimosso dalla lista.
      *
      * @param[in] c Contatto da rimuovere
      * @see cercaContatto()
-     * 
-     * @return true o false
+     *
+     * @return true quando la rimozione ha esito positivo, altrimenti false
      */
     public boolean rimuoviContatto(Contatto c) {
         return true;
@@ -102,20 +106,19 @@ public class ListaContatti {
      * @brief Modifica un contatto.
      *
      * Il metodo permette di modificare un contatto: cerca il contatto da
-     * modificare, scorre la lista dei contatti, verifica che i dati non siano
+     * modificare, scorre la lista dei contatti per verificare che i dati non siano
      * presenti in altri utenti e, nel caso in cui non lo fossero, modifica il
      * contatto invocando il metodo modifica() nella classe Contatto.
-     * 
+     *
      * @pre Il contatto deve essere presente nella lista.
      * @post Il contatto viene modificato.
      * @invariant La dimensione della lista resta invariata.
-     * 
-     * @param[in] nomeVecchio Nome che serve a cercare il contatto
-     * nella lista.
-     * @param[in] nomeNuovo Nome che viene eventualmente sostituito
-     * al precedente.
-     * @param[in] cognomeVecchio Cognome che serve a cercare il
-     * contatto nella lista.
+     *
+     * @param[in] nomeVecchio Nome che serve a cercare il contatto nella lista.
+     * @param[in] nomeNuovo Nome che viene eventualmente sostituito al
+     * precedente.
+     * @param[in] cognomeVecchio Cognome che serve a cercare il contatto nella
+     * lista.
      * @param[in] cognomeNuovo Cognome del contatto che viene eventualmente
      * sostituito al precedente.
      * @param[in] emailVecchia Indirizzo email precedente.
@@ -124,12 +127,12 @@ public class ListaContatti {
      * @param[in] telefonoVecchio Numero di telefono precedente.
      * @param[in] telefonoNuovo Numero di telefono nuovo eventualmente
      * sostituito al precedente.
-     * 
+     *
      * @see cercaContatto()
      * @see modifica()
-     * 
-     * 
-     * @return true o false
+     *
+     *
+     * @return true quando il contatto viene modificato, altrimenti false
      */
     public boolean modificaContatto(String nomeVecchio, String nomeNuovo, String cognomeVecchio, String cognomeNuovo, String emailVecchia, String emailNuova, String telefonoVecchio, String telefonoNuovo) {
         return true;
