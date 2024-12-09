@@ -13,7 +13,12 @@ package it.unisa.diem.softeng.progettogruppo20.gestione;
  *
  * @author luigicocco
  */
+import it.unisa.diem.softeng.progettogruppo20.Struttura.Contatto;
 import it.unisa.diem.softeng.progettogruppo20.gestione.ListaContatti;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 
 public class GestioneFile {
@@ -33,7 +38,11 @@ public class GestioneFile {
      * 
      * @param[in] listaContatti è la lista che dev'essere salvata nel file
      */
-    public void esporta(ListaContatti listaContatti){
+    public void esporta(ListaContatti listaContatti) throws IOException{
+        
+        try(PrintWriter pw=new PrintWriter(new BufferedWriter(new FileWriter(this.fileName)))) {
+            pw.print(listaContatti.toString());
+        }
         
     }
     
