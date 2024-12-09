@@ -89,4 +89,22 @@ public class Contatto implements Comparable {
             return this.nome.compareTo(c.nome);
         }
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public Dato getTel() {
+        return tel;
+    }
+
+    public Dato getEmail() {
+        return email;
+    }
+    
+    
 }
