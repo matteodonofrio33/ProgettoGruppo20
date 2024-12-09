@@ -6,7 +6,12 @@ import java.awt.Button;
 import java.awt.TextField;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collection;
 import java.util.ResourceBundle;
+import java.util.TreeSet;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -84,6 +89,8 @@ public class PrimaryController implements Initializable {
     private TableColumn<Contatto, String> email3Clm;
 
     //lista osservabile
+    
+    private ListaContatti listaContatti;
     private ObservableList<Contatto> contatti;
 
     
@@ -96,8 +103,24 @@ public class PrimaryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        listaContatti = new ListaContatti();
         contatti = FXCollections.observableArrayList();
-
+        nomeClm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getNome()));
+        cognomeClm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getCognome()));
+        tel1Clm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getTel().getDati().get(0)));
+        tel2Clm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getTel().getDati().get(1)));
+        tel3Clm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getTel().getDati().get(2)));
+        
+        email1Clm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getEmail().getDati().get(0)));
+        email2Clm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getEmail().getDati().get(1)));
+        email3Clm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getEmail().getDati().get(2)));
+     
+        tabellaContatti.setItems(contatti);
+        
+    }
+    
+    private void updateTableView(){
+        contatti.setAll(listaContatti.getElenco());
     }
     
     @FXML
