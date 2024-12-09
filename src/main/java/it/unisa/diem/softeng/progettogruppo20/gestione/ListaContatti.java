@@ -146,20 +146,25 @@ public class ListaContatti {
         return true;
     }
     
-    /*@Override
+    @Override
     public String toString() {
         
         StringBuffer sb=new StringBuffer();
         
-        sb.append("NOME,COGNOME,TELEFONO1,EMAIL");
+        sb.append("NOME,COGNOME,TELEFONO1,TELEFONO2,TELEFONO3,EMAIL1,EMAIL2,EMAIL3");
         
         for(Contatto c : elenco) {
             sb.append(formattazioneCSV(c.getNome())).append(",");
             sb.append(formattazioneCSV(c.getCognome())).append(",");
-            sb.append(formattazioneCSV(c.tel).append(","));
+            for(String telefono : c.getTel().dati){  
+                sb.append(formattazioneCSV(telefono)).append(",");  
+            }
+            for(String email : c.getEmail().dati){
+                sb.append(formattazioneCSV(email)).append(",");
+            }
         }
-        
-    } */
+        return sb.toString();
+    }
     
     private String formattazioneCSV(String valore) {
         if(valore==null)
@@ -170,4 +175,6 @@ public class ListaContatti {
         
         return valore;
     }
+    
+    
 }
