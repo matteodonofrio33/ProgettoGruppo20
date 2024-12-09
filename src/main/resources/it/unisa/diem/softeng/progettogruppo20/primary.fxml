@@ -14,7 +14,7 @@
    <items>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <VBox prefHeight="914.0" prefWidth="263.0" spacing="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
+            <VBox fx:id="cercaBtn" prefHeight="914.0" prefWidth="263.0" spacing="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
                <children>
                   <MenuBar>
                     <menus>
@@ -32,53 +32,53 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField />
+                  <TextField fx:id="nomeTfd" />
                   <Label layoutX="10.0" layoutY="64.0" text="Cognome">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="10.0" layoutY="98.0" />
+                  <TextField fx:id="cognomeTfd" layoutX="10.0" layoutY="98.0" />
                   <Label layoutX="10.0" layoutY="140.0" text="Telefono1">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="telfield1" layoutX="10.0" layoutY="174.0" />
+                  <TextField fx:id="telTfd1" layoutX="10.0" layoutY="174.0" />
                   <Label layoutX="10.0" layoutY="231.0" text="Telefono2">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="telfield2" layoutX="10.0" layoutY="267.0" />
+                  <TextField fx:id="telTfd2" layoutX="10.0" layoutY="267.0" />
                   <Label text="Telefono3">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="telfield3" />
+                  <TextField fx:id="telTfd3" />
                   <Label text="Email1">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="emailfield1" layoutX="10.0" layoutY="431.0" />
+                  <TextField fx:id="emailTfd1" layoutX="10.0" layoutY="431.0" />
                   <Label layoutX="10.0" layoutY="477.0" text="Email2">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="emailfield2" layoutX="10.0" layoutY="513.0" />
+                  <TextField fx:id="emailTfd2" layoutX="10.0" layoutY="513.0" />
                   <Label layoutX="10.0" layoutY="477.0" text="Email3">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="emailfield3" layoutX="10.0" layoutY="595.0" />
+                  <TextField fx:id="emailTfd3" layoutX="10.0" layoutY="595.0" />
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="313.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Modifica" />
-                        <Button mnemonicParsing="false" text="Cerca" />
+                        <Button fx:id="modificaBtn" mnemonicParsing="false" text="Modifica" />
+                        <Button fx:id="cercaBtn" mnemonicParsing="false" text="Cerca" />
                      </children>
                      <padding>
                         <Insets top="10.0" />
@@ -89,8 +89,8 @@
                         <Insets top="10.0" />
                      </padding>
                      <children>
-                        <Button mnemonicParsing="false" text="Rimuovi" />
-                        <Button mnemonicParsing="false" text="Aggiungi" />
+                        <Button fx:id="rimuoviBtn" mnemonicParsing="false" text="Rimuovi" />
+                        <Button fx:id="aggiungiBtn" mnemonicParsing="false" text="Aggiungi" />
                      </children>
                   </HBox>
                </children>
@@ -100,16 +100,16 @@
             </VBox>
             <AnchorPane layoutX="276.0" layoutY="12.0" prefHeight="586.0" prefWidth="564.0">
                <children>
-                  <TableView prefHeight="923.0" prefWidth="886.0">
+                  <TableView fx:id="nomeTfd" prefHeight="923.0" prefWidth="886.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Nome" />
-                      <TableColumn prefWidth="75.0" text="Cognome" />
-                        <TableColumn fx:id="columnTelefono1" prefWidth="75.0" text="Telefono1" />
-                        <TableColumn fx:id="columnTelefono2" prefWidth="75.0" text="Telefono2" />
-                        <TableColumn fx:id="columnTelefono3" prefWidth="75.0" text="Telefono3" />
-                        <TableColumn fx:id="columnEmail1" prefWidth="75.0" text="Email1" />
-                        <TableColumn fx:id="columnEmail2" prefWidth="75.0" text="Email2" />
-                        <TableColumn fx:id="columnEmail3" prefWidth="75.0" text="Email3" />
+                      <TableColumn fx:id="nomeClm" prefWidth="75.0" text="Nome" />
+                      <TableColumn fx:id="cognomeClm" prefWidth="75.0" text="Cognome" />
+                        <TableColumn fx:id="tel1Clm" prefWidth="75.0" text="Telefono1" />
+                        <TableColumn fx:id="tel2Clm" prefWidth="75.0" text="Telefono2" />
+                        <TableColumn fx:id="tel3Clm" prefWidth="75.0" text="Telefono3" />
+                        <TableColumn fx:id="email1Clm" prefWidth="75.0" text="Email1" />
+                        <TableColumn fx:id="email2Clm" prefWidth="75.0" text="Email2" />
+                        <TableColumn fx:id="email3Clm" prefWidth="75.0" text="Email3" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
