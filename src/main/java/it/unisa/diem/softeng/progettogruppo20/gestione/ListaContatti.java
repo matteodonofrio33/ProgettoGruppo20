@@ -145,4 +145,29 @@ public class ListaContatti {
     public boolean modificaContatto(String nomeVecchio, String nomeNuovo, String cognomeVecchio, String cognomeNuovo, String emailVecchia, String emailNuova, String telefonoVecchio, String telefonoNuovo) {
         return true;
     }
+    
+    /*@Override
+    public String toString() {
+        
+        StringBuffer sb=new StringBuffer();
+        
+        sb.append("NOME,COGNOME,TELEFONO1,EMAIL");
+        
+        for(Contatto c : elenco) {
+            sb.append(formattazioneCSV(c.getNome())).append(",");
+            sb.append(formattazioneCSV(c.getCognome())).append(",");
+            sb.append(formattazioneCSV(c.tel).append(","));
+        }
+        
+    } */
+    
+    private String formattazioneCSV(String valore) {
+        if(valore==null)
+            return "";
+        if(valore.contains(",") || valore.contains("\n") || valore.contains("\"")) {
+            return "\"" + valore.replace("\"", "\"\"") + "\"";
+        }
+        
+        return valore;
+    }
 }
