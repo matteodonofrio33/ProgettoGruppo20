@@ -6,9 +6,14 @@
 package it.unisa.diem.softeng.progettogruppo20.Struttura;
 
 /**
+ * @file Telefono.java
+ * @brief Classe che estende la classe Dato e ne riscrive i metodi.
  *
- * @author acest
+ * @author Matteo D'Onofrio
+ * @date December 06, 2024
+ * @version 1.0
  */
+
 public class Telefono extends Dato {
 
     public Telefono() {
