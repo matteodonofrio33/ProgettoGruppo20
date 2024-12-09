@@ -25,7 +25,22 @@ public class PrimaryController implements Initializable{
     private TextField cognomeTfd;
     
     @FXML
-    private TextField telefonoTfd;
+    private TextField telefonoTfd1;
+    
+    @FXML
+    private TextField telefonoTfd2;
+    
+    @FXML
+    private TextField telefonoTfd3;
+    
+    @FXML
+    private TextField emailTfd1;
+    
+    @FXML
+    private TextField emailTfd2;
+    
+    @FXML
+    private TextField emailTfd3;
     
     @FXML
     private Button aggiungiBtn;
@@ -33,7 +48,9 @@ public class PrimaryController implements Initializable{
     @FXML
     private Button rimuoviBtn;
     
-    
+     @FXML
+    private Button cercaBtn;
+     
     //dichiarazione tabella:
     @FXML
     private TableView<Contatto> tabellaContatti;
