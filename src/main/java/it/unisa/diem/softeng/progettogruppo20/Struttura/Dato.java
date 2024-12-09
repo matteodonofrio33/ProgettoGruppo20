@@ -41,6 +41,9 @@ public abstract class Dato {
      * @return true se dato è presente altrimenti false.
      */
     private boolean contiene(String dato) {
+        if(!(dati.contains(dato)))
+            return false;
+                  
         return true;
     }
 
@@ -59,7 +62,11 @@ public abstract class Dato {
      * @return true se l'aggiunta è andata a buon fine altrimenti false.
      */
     protected boolean aggiungiDato(String dato) {
-        return true;
+        
+        boolean flag;
+        flag=dati.add(dato);
+        return flag;
+        
     }
 
     /**
@@ -73,6 +80,8 @@ public abstract class Dato {
      */
     protected void rimuoviDato(String dato) {
 
+        dati.remove(dato);
+        
     }
 
     /**
@@ -104,7 +113,14 @@ public abstract class Dato {
      * @return true se il limite è stato raggiunto altrimenti false.
      */
     private boolean limiteRaggiunto() {
-        return true;
+        
+        int c=0;
+        for(String d : dati) {
+            c++;
+        }
+        if(c==3)
+            return true;
+        return false;
     }
 
     /**
@@ -116,5 +132,5 @@ public abstract class Dato {
      * classe Email altrimenti "Telefono".
      */
     protected abstract String getTipo();
-
+    
 }
