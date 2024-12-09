@@ -13,7 +13,13 @@ package it.unisa.diem.softeng.progettogruppo20.gestione;
  *
  * @author luigicocco
  */
+import it.unisa.diem.softeng.progettogruppo20.Struttura.Email;
 import it.unisa.diem.softeng.progettogruppo20.gestione.ListaContatti;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Locale;
+import java.util.Scanner;
 
 
 public class GestioneFile {
@@ -43,9 +49,26 @@ public class GestioneFile {
      * @post si otterrà un oggetto di ListaContatti
      * @return ritorna un oggetto di ListaContatti
      */
-    public ListaContatti importa(){
+    public ListaContatti importa() throws FileNotFoundException{
         
-        return null;
+        ListaContatti lista=new ListaContatti();
+        
+        try(Scanner s=new Scanner(new BufferedReader(new FileReader(this.fileName)))){
+            if(s.nextLine()==null) return lista;
+            
+            s.useDelimiter("[;\n]");
+            s.useLocale(Locale.US);
+            
+            while(s.hasNext()){
+                String nome=s.next();
+                String cognome=s.next();
+                String email=s.next();
+                String telefono=s.next();
+                lista.aggiungiContatto(nome, cognome, telefono, email);
+            }
+        }
+        
+        return lista;
     }
     
     
