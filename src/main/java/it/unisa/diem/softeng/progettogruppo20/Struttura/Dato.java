@@ -17,7 +17,7 @@ import java.util.List;
  */
 public abstract class Dato {
 
-    public List<String> dati;
+    private List<String> dati;
 
     /**
      * @brief Costruttore. 
@@ -134,5 +134,9 @@ public abstract class Dato {
      * classe Email altrimenti "Telefono".
      */
     protected abstract String getTipo();
+
+    public List<String> getDati() {
+        return dati;
+    }
     
 }

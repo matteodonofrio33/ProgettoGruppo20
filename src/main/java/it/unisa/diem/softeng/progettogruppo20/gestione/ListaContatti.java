@@ -156,10 +156,10 @@ public class ListaContatti {
         for(Contatto c : elenco) {
             sb.append(formattazioneCSV(c.getNome())).append(",");
             sb.append(formattazioneCSV(c.getCognome())).append(",");
-            for(String telefono : c.getTel().dati){  
+            for(String telefono : c.getTel().getDati()){  
                 sb.append(formattazioneCSV(telefono)).append(",");  
             }
-            for(String email : c.getEmail().dati){
+            for(String email : c.getEmail().getDati()){
                 sb.append(formattazioneCSV(email)).append(",");
             }
         }
@@ -175,6 +175,11 @@ public class ListaContatti {
         
         return valore;
     }
+
+    public Set<Contatto> getElenco() {
+        return elenco;
+    }
+    
     
     
 }
