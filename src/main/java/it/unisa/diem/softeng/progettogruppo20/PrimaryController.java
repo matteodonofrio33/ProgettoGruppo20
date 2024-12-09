@@ -6,6 +6,7 @@ import java.awt.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -84,6 +85,9 @@ public class PrimaryController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         
         contatti = FXCollections.observableArrayList();
+        nomeClm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getNome()));
+        cognomeClm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getCognome()));
+        telefonoClm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getTel().getDati().get(0)));
        
     }
     
