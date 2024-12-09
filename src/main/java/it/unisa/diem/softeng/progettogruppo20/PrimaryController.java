@@ -13,68 +13,79 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class PrimaryController implements Initializable{
-    
-    
-    
+public class PrimaryController implements Initializable {
+
     //dichiarazione bottoni presenti nell'interfaccia:
     @FXML
     private TextField nomeTfd;
-    
+
     @FXML
     private TextField cognomeTfd;
-    
+
     @FXML
-    private TextField telefonoTfd1;
-    
+    private TextField telTfd1;
+
     @FXML
-    private TextField telefonoTfd2;
-    
+    private TextField telTfd2;
+
     @FXML
-    private TextField telefonoTfd3;
-    
+    private TextField telTfd3;
+
     @FXML
     private TextField emailTfd1;
-    
+
     @FXML
     private TextField emailTfd2;
-    
+
     @FXML
-    private TextField emailTfd3;
-    
+    private TextField emailTfd3;//
+
     @FXML
     private Button aggiungiBtn;
-    
+
     @FXML
     private Button rimuoviBtn;
-    
-     @FXML
+
+    @FXML
     private Button cercaBtn;
-     
+
+    @FXML
+    private Button modificaBtn;
+
     //dichiarazione tabella:
     @FXML
     private TableView<Contatto> tabellaContatti;
-    
+
     //colonne per ogni campo del contatto:
-    
     @FXML
     private TableColumn<Contatto, String> nomeClm;
-    
+
     @FXML
     private TableColumn<Contatto, String> cognomeClm;
-    
-     @FXML
-    private TableColumn<Contatto, String> telefonoClm;
-    
-    //lista osservabile
-    
-    private ObservableList<Contatto> contatti;
-    
-    
-    
-    
-    
 
+    @FXML
+    private TableColumn<Contatto, String> tel1Clm;
+
+    @FXML
+    private TableColumn<Contatto, String> tel2Clm;
+
+    @FXML
+    private TableColumn<Contatto, String> tel3Clm; //columnEmail1
+
+    @FXML
+    private TableColumn<Contatto, String> email1Clm;
+
+    @FXML
+    private TableColumn<Contatto, String> email2Clm;
+
+    @FXML
+    private TableColumn<Contatto, String> email3Clm;
+
+    //lista osservabile
+    private ObservableList<Contatto> contatti;
+
+    
+    
     @FXML
     private void switchToSecondary() throws IOException {
         App.setRoot("secondary");
@@ -82,14 +93,9 @@ public class PrimaryController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         contatti = FXCollections.observableArrayList();
-       
+
     }
-    
-    
-    
-    
-    
-    
+
 }
