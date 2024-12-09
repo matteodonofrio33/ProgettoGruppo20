@@ -1,6 +1,7 @@
 package it.unisa.diem.softeng.progettogruppo20;
 
 import it.unisa.diem.softeng.progettogruppo20.Struttura.Contatto;
+import it.unisa.diem.softeng.progettogruppo20.gestione.ListaContatti;
 import java.awt.Button;
 import java.awt.TextField;
 import java.io.IOException;
@@ -8,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -96,6 +98,13 @@ public class PrimaryController implements Initializable {
 
         contatti = FXCollections.observableArrayList();
 
+    }
+    
+    @FXML
+    private void addContact(ActionEvent event) {
+        
+        Contatto nuovoContatto=listaContatti.aggiungiContatto(nomeTfd.getText(), cognomeTfd.getText(), telTfd1.getText(), telTfd2.getText(), telTfd3.getText(), emailTfd1.getText(), emailTfd2.getText(), emailTfd3.getText());
+        
     }
 
 }

@@ -65,9 +65,13 @@ public class GestioneFile {
             while (s.hasNext()) {
                 String nome = s.next();
                 String cognome = s.next();
-                String email = s.next();
-                String telefono = s.next();
-                lista.aggiungiContatto(nome, cognome, telefono, email);
+                String telefono1 = s.next();
+                String telefono2 = s.next();
+                String telefono3 = s.next();
+                String email1 = s.next();
+                String email2 = s.next();
+                String email3= s.next();
+                lista.aggiungiContatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
             }
         }
 

@@ -61,11 +61,12 @@ public abstract class Dato {
      * @see limiteRaggiunto()
      * @return true se l'aggiunta è andata a buon fine altrimenti false.
      */
-    protected boolean aggiungiDato(String dato) {
+    protected void aggiungiDato(String dato) {
         
-        boolean flag;
-        flag=dati.add(dato);
-        return flag;
+        if(dato==null)
+            return;
+        else
+            this.dati.add(dato);
         
     }
 

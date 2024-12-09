@@ -64,17 +64,13 @@ public class ListaContatti {
      *
      * @return true quando l'aggiunta ha esito positivo, altrimenti false
      */
-    public boolean aggiungiContatto(String nome, String cognome, String telefono, String email) {
+    public Contatto aggiungiContatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
 
-        boolean flag;
-        Contatto c = new Contatto(nome, cognome, telefono, email);
+        Contatto c = new Contatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
 
-        flag = elenco.add(c);
-        if (!flag) {
-            return false;
-        }
+        elenco.add(c);
 
-        return true;
+        return c;
     }
 
     /**
