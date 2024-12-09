@@ -39,15 +39,14 @@ public class ListaContatti {
         return elenco;
         }
      */
-    
     /**
      * @brief Metodo che aggiunge un contatto alla lista.
      *
      * Il metodo verifica che non sia presente già un contatto con le stesse
-     * informazioni, scorre la lista e ,nel caso in cui il riscontro fosse positivo,
-     * viene aggiunto il nuovo contatto.
+     * informazioni, scorre la lista e ,nel caso in cui il riscontro fosse
+     * positivo, viene aggiunto il nuovo contatto.
      *
-     * @pre Il contatto non deve essere già presente in rubrica 
+     * @pre Il contatto non deve essere già presente in rubrica
      * @pre nome o cognome non devono essere nulli.
      * @post Il contatto viene aggiunto.
      *
@@ -62,6 +61,14 @@ public class ListaContatti {
      * @return true quando l'aggiunta ha esito positivo, altrimenti false
      */
     public boolean aggiungiContatto(String nome, String cognome, String telefono, String email) {
+
+        boolean flag;
+        Contatto c = new Contatto(nome, cognome, telefono, email);
+
+        flag = elenco.add(c);
+        if (!flag) {
+            return false;
+        }
 
         return true;
     }
@@ -106,9 +113,10 @@ public class ListaContatti {
      * @brief Modifica un contatto.
      *
      * Il metodo permette di modificare un contatto: cerca il contatto da
-     * modificare, scorre la lista dei contatti per verificare che i dati non siano
-     * presenti in altri utenti e, nel caso in cui non lo fossero, modifica il
-     * contatto invocando il metodo modifica() nella classe Contatto.
+     * modificare, scorre la lista dei contatti per verificare che i dati non
+     * siano presenti in altri utenti e, nel caso in cui non lo fossero,
+     * modifica il contatto invocando il metodo modifica() nella classe
+     * Contatto.
      *
      * @pre Il contatto deve essere presente nella lista.
      * @post Il contatto viene modificato.
