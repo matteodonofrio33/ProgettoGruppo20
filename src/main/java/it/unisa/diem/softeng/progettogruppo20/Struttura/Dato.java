@@ -17,7 +17,7 @@ import java.util.List;
  */
 public abstract class Dato {
 
-    private List<String> dati;
+    public List<String> dati;
 
     /**
      * @brief Costruttore. 
