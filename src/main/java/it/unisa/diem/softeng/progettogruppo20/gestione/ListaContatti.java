@@ -6,6 +6,10 @@
 package it.unisa.diem.softeng.progettogruppo20.gestione;
 
 import it.unisa.diem.softeng.progettogruppo20.Struttura.Contatto;
+import it.unisa.diem.softeng.progettogruppo20.Struttura.Dato;
+import it.unisa.diem.softeng.progettogruppo20.Struttura.Telefono;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -146,20 +150,6 @@ public class ListaContatti {
         return true;
     }
     
-    /*@Override
-    public String toString() {
-        
-        StringBuffer sb=new StringBuffer();
-        
-        sb.append("NOME,COGNOME,TELEFONO1,EMAIL");
-        
-        for(Contatto c : elenco) {
-            sb.append(formattazioneCSV(c.getNome())).append(",");
-            sb.append(formattazioneCSV(c.getCognome())).append(",");
-            sb.append(formattazioneCSV(c.tel).append(","));
-        }
-        
-    } */
     
     private String formattazioneCSV(String valore) {
         if(valore==null)
