@@ -123,6 +123,8 @@ public abstract class Dato {
         return false;
     }
 
+    
+    
     /**
      * @brief metodo astratto che restituisce il tipo del dato.
      *
