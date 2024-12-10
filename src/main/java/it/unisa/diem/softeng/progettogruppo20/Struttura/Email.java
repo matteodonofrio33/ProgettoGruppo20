@@ -5,6 +5,9 @@
  */
 package it.unisa.diem.softeng.progettogruppo20.Struttura;
 
+import static java.lang.Character.isLetter;
+import java.util.List;
+
 /**
  * @file Email.java
  * @brief Classe che estende la classe Dato e ne riscrive i metodi.
@@ -15,7 +18,7 @@ package it.unisa.diem.softeng.progettogruppo20.Struttura;
  */
 
 public class Email extends Dato {
-
+    
     public Email() {
         super();
     }
@@ -29,5 +32,6 @@ public class Email extends Dato {
     protected boolean modificaDato(String emailVecchia, String emailNuova) {
         return true;
     }
+    
 
 }
