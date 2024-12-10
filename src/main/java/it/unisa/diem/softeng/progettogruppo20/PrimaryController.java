@@ -135,8 +135,7 @@ public class PrimaryController implements Initializable {
     }
 
     @FXML
-    private void addContact(ActionEvent event) {
-        System.out.println("CIAOOOO");
+    private void addContact(ActionEvent event) {     
     }
 
 }
