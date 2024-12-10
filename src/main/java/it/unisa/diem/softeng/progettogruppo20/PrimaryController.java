@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.Collection;
 import java.util.ResourceBundle;
 import java.util.TreeSet;
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.SimpleStringProperty;
@@ -89,36 +90,32 @@ public class PrimaryController implements Initializable {
     private TableColumn<Contatto, String> email3Clm;
 
     //lista osservabile
-    
     private ListaContatti listaContatti;
     private ObservableList<Contatto> contatti;
 
-    
-    
-   /* private void switchToSecondary() throws IOException {
+    /* private void switchToSecondary() throws IOException {
         App.setRoot("secondary");
     }*/
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
         listaContatti = new ListaContatti();
         contatti = FXCollections.observableArrayList();
-        nomeClm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getNome()));
-        cognomeClm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getCognome()));
-        tel1Clm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getTel().getDati().get(0)));
-        tel2Clm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getTel().getDati().get(1)));
-        tel3Clm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getTel().getDati().get(2)));
-        
-        email1Clm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getEmail().getDati().get(0)));
-        email2Clm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getEmail().getDati().get(1)));
-        email3Clm.setCellValueFactory( s -> new SimpleStringProperty(s.getValue().getEmail().getDati().get(2)));
-     
+        nomeClm.setCellValueFactory(s -> new SimpleStringProperty(s.getValue().getNome()));
+        cognomeClm.setCellValueFactory(s -> new SimpleStringProperty(s.getValue().getCognome()));
+        tel1Clm.setCellValueFactory(s -> new SimpleStringProperty(s.getValue().getTel().getDati().get(0)));
+        tel2Clm.setCellValueFactory(s -> new SimpleStringProperty(s.getValue().getTel().getDati().get(1)));
+        tel3Clm.setCellValueFactory(s -> new SimpleStringProperty(s.getValue().getTel().getDati().get(2)));
+
+        email1Clm.setCellValueFactory(s -> new SimpleStringProperty(s.getValue().getEmail().getDati().get(0)));
+        email2Clm.setCellValueFactory(s -> new SimpleStringProperty(s.getValue().getEmail().getDati().get(1)));
+        email3Clm.setCellValueFactory(s -> new SimpleStringProperty(s.getValue().getEmail().getDati().get(2)));
+
         tabellaContatti.setItems(contatti);
-        
+
     }
-    
-    private void updateTableView(){
+
+    private void aggiornamentoTableView() {
         contatti.setAll(listaContatti.getElenco());
     }
 
@@ -135,9 +132,41 @@ public class PrimaryController implements Initializable {
     }
 
     @FXML
-    private void addContact(ActionEvent event) {
+    private void addContact() {
         listaContatti.aggiungiContatto(nomeTfd.getText(), cognomeTfd.getText(), telTfd1.getText(), telTfd2.getText(), telTfd3.getText(), emailTfd1.getText(), emailTfd2.getText(), emailTfd3.getText());
-        updateTableView();
+        aggiornamentoTableView();
+        puliziaCampi();
+    }
+
+    private void puliziaCampi() {
+
+        nomeTfd.clear();
+        cognomeTfd.clear();
+        telTfd1.clear();
+        telTfd2.clear();
+        telTfd3.clear();
+        emailTfd1.clear();
+        emailTfd2.clear();
+        emailTfd3.clear();
+
+    }
+
+    @FXML
+    private void rimozioneContatto() {
+
+        Contatto selezione = tabellaContatti.getSelectionModel().getSelectedItem();
+
+        if (selezione != null) {
+            listaContatti.getElenco().remove(selezione);
+            aggiornamentoTableView();
+
+        }
+    }
+
+    @FXML
+    private void chiusuraProgramma() {
+        Platform.exit();
+
     }
 
 }

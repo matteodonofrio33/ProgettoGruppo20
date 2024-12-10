@@ -89,7 +89,7 @@
                         <Insets top="10.0" />
                      </padding>
                      <children>
-                        <Button fx:id="rimuoviBtn" mnemonicParsing="false" onAction="#removeContact" text="Rimuovi" />
+                        <Button fx:id="rimuoviBtn" mnemonicParsing="false" onAction="#rimozioneContatto" text="Rimuovi" />
                         <Button fx:id="aggiungiBtn" mnemonicParsing="false" onAction="#addContact" text="Aggiungi" />
                      </children>
                   </HBox>
