@@ -41,10 +41,7 @@ public abstract class Dato {
      * @return true se dato è presente altrimenti false.
      */
     public boolean contiene(String dato) {
-        if(!(dati.contains(dato)))
-            return false;
-                  
-        return true;
+        return dati.contains(dato);
     }
 
     /**
@@ -62,7 +59,9 @@ public abstract class Dato {
      * @return true se l'aggiunta è andata a buon fine altrimenti false.
      */
     protected void aggiungiDato(String dato) {
-        if(dato!="")
+        if(dato=="")
+            return;
+        else
             dati.add(dato);
     }
 

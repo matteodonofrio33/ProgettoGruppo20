@@ -60,22 +60,68 @@ public class ListaContatti {
      *
      * @return true quando l'aggiunta ha esito positivo, altrimenti false
      */
-    public void aggiungiContatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
-        
-       /* for(Contatto cnt : elenco) {
-            if(cnt.getTel().contiene(telefono1) || cnt.getTel().contiene(telefono2) || cnt.getTel().contiene(telefono3)) {
-                System.out.println("ERRORE\n");
-                return;
+public void aggiungiContatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
+        boolean presente = false;
+
+        for (Contatto cnt : elenco) {
+
+            for (String telefono : cnt.getTel().getDati()) {
+
+                if (telefono1 != null && (!telefono.isEmpty()) && telefono.equals(telefono1)) {
+
+                    presente = true;
+
+                }
+
+                if (telefono2 != null && (!telefono.isEmpty()) && telefono.equals(telefono2)) {
+
+                    presente = true;
+
+                }
+
+                if (telefono3 != null && (!telefono.isEmpty()) && telefono.equals(telefono3)) {
+
+                    presente = true;
+
+                }
+
             }
-            if(cnt.getEmail().contiene(email1) || cnt.getEmail().contiene(email2) || cnt.getEmail().contiene(email3)) {
-                System.out.println("ERRORE\n");
-                return;
-            }            
-        } */
-        Contatto c = new Contatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
-        elenco.add(c);
-        return;
+
+            for (String email : cnt.getEmail().getDati()) {
+
+                if (email1 != null && (!email.isEmpty()) && email.equals(email1)) {
+
+                    presente = true;
+
+                }
+
+                if (email2 != null && (!email.isEmpty()) && email.equals(email2)) {
+
+                    presente = true;
+
+                }
+
+                if (email3 != null && (!email.isEmpty()) && email.equals(email3)) {
+
+                    presente = true;
+
+                }
+
+            }
+
+        }
+
+        if (!presente) {
+            Contatto c = new Contatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
+            elenco.add(c);
+
+        } else {
+            System.out.println("\n DATO PRESENTE");
+            presente = false;
+        }
+
     }
+
 
     /**
      * @brief Cerca il contatto.

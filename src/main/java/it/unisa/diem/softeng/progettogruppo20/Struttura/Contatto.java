@@ -15,8 +15,8 @@ public class Contatto implements Comparable<Contatto> {
 
     private String nome;
     private String cognome;
-    private Dato tel;
-    private Dato email;
+    private Telefono tel;
+    private Email email;
 
     /**
      * @brief Crea un oggetto di tipo Contatto
@@ -126,11 +126,11 @@ public class Contatto implements Comparable<Contatto> {
         return cognome;
     }
 
-    public Dato getTel() {
+    public Telefono getTel() {
         return tel;
     }
 
-    public Dato getEmail() {
+    public Email getEmail() {
         return email;
     }
 
