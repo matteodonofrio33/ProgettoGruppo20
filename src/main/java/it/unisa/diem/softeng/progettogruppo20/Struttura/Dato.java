@@ -40,7 +40,7 @@ public abstract class Dato {
      *
      * @return true se dato è presente altrimenti false.
      */
-    private boolean contiene(String dato) {
+    public boolean contiene(String dato) {
         if(!(dati.contains(dato)))
             return false;
                   

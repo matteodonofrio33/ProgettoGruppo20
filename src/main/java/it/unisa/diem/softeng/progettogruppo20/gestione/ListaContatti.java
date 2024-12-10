@@ -62,9 +62,19 @@ public class ListaContatti {
      */
     public void aggiungiContatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
         
+        for(Contatto cnt : elenco) {
+            if(cnt.getTel().contiene(telefono1) || cnt.getTel().contiene(telefono2) || cnt.getTel().contiene(telefono3)) {
+                System.out.println("ERRORE\n");
+                return;
+            }
+            if(cnt.getEmail().contiene(email1) || cnt.getEmail().contiene(email2) || cnt.getEmail().contiene(email3)) {
+                System.out.println("ERRORE\n");
+                return;
+            }            
+        }
         Contatto c = new Contatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
-
         elenco.add(c);
+        
     }
 
     /**
