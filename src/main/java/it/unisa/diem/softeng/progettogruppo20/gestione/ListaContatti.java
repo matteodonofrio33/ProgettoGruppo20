@@ -74,7 +74,7 @@ public class ListaContatti {
         }
         Contatto c = new Contatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
         elenco.add(c);
-        
+        return;
     }
 
     /**

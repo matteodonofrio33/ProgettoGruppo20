@@ -62,7 +62,8 @@ public abstract class Dato {
      * @return true se l'aggiunta è andata a buon fine altrimenti false.
      */
     protected void aggiungiDato(String dato) {
-        dati.add(dato);
+        if(dato!="")
+            dati.add(dato);
     }
 
     /**
