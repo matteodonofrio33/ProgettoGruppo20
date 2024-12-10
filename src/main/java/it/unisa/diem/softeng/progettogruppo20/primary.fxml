@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.layout.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="944.0" prefWidth="1170.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.softeng.progettogruppo20.PrimaryController">
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="944.0" prefWidth="1170.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <items>
-      <AnchorPane prefHeight="943.0" prefWidth="1181.0">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <VBox prefHeight="914.0" prefWidth="263.0" spacing="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
+            <VBox fx:id="cercaBtn" prefHeight="914.0" prefWidth="263.0" spacing="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
                <children>
                   <MenuBar>
                     <menus>
@@ -77,8 +82,8 @@
                   <TextField fx:id="emailTfd3" layoutX="10.0" layoutY="595.0" />
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="313.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                      <children>
-                        <Button fx:id="modificaBtn" mnemonicParsing="false" onAction="#modificaContatto" text="Modifica" />
-                        <Button fx:id="cercaBtn" mnemonicParsing="false" onAction="#cercaContatto" text="Cerca" />
+                        <Button fx:id="modificaBtn" mnemonicParsing="false" text="Modifica" />
+                        <Button fx:id="cercaBtn" mnemonicParsing="false" text="Cerca" />
                      </children>
                      <padding>
                         <Insets top="10.0" />
@@ -89,7 +94,7 @@
                         <Insets top="10.0" />
                      </padding>
                      <children>
-                        <Button fx:id="rimuoviBtn" mnemonicParsing="false" onAction="#rimozioneContatto" text="Rimuovi" />
+                        <Button fx:id="rimuoviBtn" mnemonicParsing="false" text="Rimuovi" />
                         <Button fx:id="aggiungiBtn" mnemonicParsing="false" onAction="#addContact" text="Aggiungi" />
                      </children>
                   </HBox>
@@ -100,7 +105,7 @@
             </VBox>
             <AnchorPane layoutX="276.0" layoutY="12.0" prefHeight="586.0" prefWidth="564.0">
                <children>
-                  <TableView fx:id="tabellaContatti" prefHeight="923.0" prefWidth="886.0">
+                  <TableView fx:id="nomeTfd" prefHeight="923.0" prefWidth="886.0">
                     <columns>
                       <TableColumn fx:id="nomeClm" prefWidth="75.0" text="Nome" />
                       <TableColumn fx:id="cognomeClm" prefWidth="75.0" text="Cognome" />

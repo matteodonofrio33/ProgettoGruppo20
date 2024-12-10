@@ -118,7 +118,7 @@ public class PrimaryController implements Initializable {
         
     }
     
-    private void updateTableView(){
+    private void aggiornamentoTableView(){
         contatti.setAll(listaContatti.getElenco());
     }
 
@@ -135,7 +135,36 @@ public class PrimaryController implements Initializable {
     }
 
     @FXML
-    private void addContact(ActionEvent event) {     
+    private void addContact(ActionEvent event) {
+        listaContatti.aggiungiContatto(nomeTfd.getText(), cognomeTfd.getText(), telTfd1.getText(), telTfd2.getText(), telTfd3.getText(), emailTfd1.getText(), emailTfd2.getText(), emailTfd3.getText());
+        aggiornamentoTableView();
+        puliziaCampi();
+    }
+    
+    private void puliziaCampi(){
+        
+        nomeTfd.clear();
+        cognomeTfd.clear();
+        telTfd1.clear();
+        telTfd2.clear();
+        telTfd3.clear();
+        emailTfd1.clear();
+        emailTfd2.clear();
+        emailTfd3.clear();
+        
+    }
+    
+    @FXML
+    private void rimozioneContatto(){
+        
+        Contatto selezione = tabellaContatti.getSelectionModel().getSelectedItem();
+        
+        if(selezione != null){
+            listaContatti.getElenco().remove(selezione);
+            aggiornamentoTableView();
+            
+        }
+        
     }
 
 }
