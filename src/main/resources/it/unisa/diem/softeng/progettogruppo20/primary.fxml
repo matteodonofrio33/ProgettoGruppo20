@@ -87,8 +87,8 @@
                   <TextField fx:id="emailTfd3" layoutX="10.0" layoutY="595.0" />
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="313.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                      <children>
-                        <Button fx:id="modificaBtn" mnemonicParsing="false" onAction="#modificaContatto" text="Modifica" />
-                        <Button fx:id="cercaBtn" mnemonicParsing="false" onAction="#cercaContatto" text="Cerca" />
+                        <Button fx:id="modificaBtn" mnemonicParsing="false" onAction="#modContatto" text="Modifica" />
+                        <Button fx:id="modificaBtn" layoutX="103.0" layoutY="46.0" mnemonicParsing="false" onAction="#confermaModifica" text="Conferma" />
                      </children>
                      <padding>
                         <Insets top="10.0" />
@@ -99,8 +99,9 @@
                         <Insets top="10.0" />
                      </padding>
                      <children>
-                        <Button fx:id="rimuoviBtn" mnemonicParsing="false" onAction="#rimozioneContatto" text="Rimuovi" />
+                        <Button fx:id="rimuoviBtn" mnemonicParsing="false" onAction="#rimozioneContatto" prefHeight="31.0" prefWidth="74.0" text="Rimuovi" />
                         <Button fx:id="aggiungiBtn" mnemonicParsing="false" onAction="#addContact" text="Aggiungi" />
+                        <Button fx:id="cercaBtn" mnemonicParsing="false" onAction="#cercaContatto" text="Cerca" />
                      </children>
                   </HBox>
                </children>

@@ -41,28 +41,8 @@ public class ListaContatti {
         return elenco;
         }
      */
-    /**
-     * @brief Metodo che aggiunge un contatto alla lista.
-     *
-     * Il metodo verifica che non sia presente già un contatto con le stesse
-     * informazioni, scorre la lista e ,nel caso in cui il riscontro fosse
-     * positivo, viene aggiunto il nuovo contatto.
-     *
-     * @pre Il contatto non deve essere già presente in rubrica
-     * @pre nome o cognome non devono essere nulli.
-     * @post Il contatto viene aggiunto.
-     *
-     * @param[in] nome Eventuale nome del contatto che si vuole aggiungere.
-     * @param[in] cognome Eventuale cognome del contatto che si vuole
-     * aggiungere.
-     * @param[in] telefono Eventuale numero di telefono del contatto che si
-     * vuole aggiungere.
-     * @param[in] email Eventuale indirizzo email del contatto che si vuole
-     * aggiungere.
-     *
-     * @return true quando l'aggiunta ha esito positivo, altrimenti false
-     */
-    public void aggiungiContatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
+    private boolean verificaDuplicatiTelefono(String telefono1, String telefono2, String telefono3) {
+
         boolean presente = false;
 
         for (Contatto cnt : elenco) {
@@ -88,7 +68,16 @@ public class ListaContatti {
                 }
 
             }
+        }
 
+        return presente;
+    }
+
+    private boolean verificaDuplicatiEmail(String email1, String email2, String email3) {
+
+        boolean presente = false;
+
+        for (Contatto cnt : elenco) {
             for (String email : cnt.getEmail().getDati()) {
 
                 if (email1 != null && (!email.isEmpty()) && email.equals(email1)) {
@@ -112,8 +101,34 @@ public class ListaContatti {
             }
 
         }
+        return presente;
+    }
 
-        if (!presente) {
+    /**
+     * @brief Metodo che aggiunge un contatto alla lista.
+     *
+     * Il metodo verifica che non sia presente già un contatto con le stesse
+     * informazioni, scorre la lista e ,nel caso in cui il riscontro fosse
+     * positivo, viene aggiunto il nuovo contatto.
+     *
+     * @pre Il contatto non deve essere già presente in rubrica
+     * @pre nome o cognome non devono essere nulli.
+     * @post Il contatto viene aggiunto.
+     *
+     * @param[in] nome Eventuale nome del contatto che si vuole aggiungere.
+     * @param[in] cognome Eventuale cognome del contatto che si vuole
+     * aggiungere.
+     * @param[in] telefono Eventuale numero di telefono del contatto che si
+     * vuole aggiungere.
+     * @param[in] email Eventuale indirizzo email del contatto che si vuole
+     * aggiungere.
+     *
+     * @return true quando l'aggiunta ha esito positivo, altrimenti false
+     */
+    public void aggiungiContatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
+        boolean presente = false;
+
+        if (!verificaDuplicatiEmail(email1, email2, email3) && !verificaDuplicatiTelefono(telefono1, telefono2, telefono3)) {
             Contatto c = new Contatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
             elenco.add(c);
 
@@ -202,7 +217,29 @@ public class ListaContatti {
      *
      * @return true quando il contatto viene modificato, altrimenti false
      */
-    public boolean modificaContatto(String nomeVecchio, String nomeNuovo, String cognomeVecchio, String cognomeNuovo, String emailVecchia, String emailNuova, String telefonoVecchio, String telefonoNuovo) {
+    public boolean modificaContatto(Contatto c, String nomeNuovo, String cognomeNuovo, String telNuovo1, String telNuovo2, String telNuovo3, String emailNuova1, String emailNuova2, String emailNuova3) {
+
+       if (!verificaDuplicatiEmail(emailNuova1, emailNuova2, emailNuova3) && !verificaDuplicatiTelefono(telNuovo1, telNuovo2, telNuovo3)) {
+            
+            /*c.setNome(nomeNuovo);
+            c.setCognome(cognomeNuovo);
+            
+            c.getEmail().getDati().set(0, emailNuova1);
+            c.getEmail().getDati().set(1, emailNuova2);
+            c.getEmail().getDati().set(2, emailNuova3);
+            
+            c.getTel().getDati().set(0, telNuovo1);
+            c.getTel().getDati().set(1, telNuovo2);
+            c.getTel().getDati().set(2, telNuovo3);*/
+            
+            rimuoviContatto(c);
+            aggiungiContatto(nomeNuovo, cognomeNuovo, telNuovo1, telNuovo2, telNuovo3, emailNuova1, emailNuova2, emailNuova3);
+            
+            
+        }
+       
+       
+        
         return true;
     }
 

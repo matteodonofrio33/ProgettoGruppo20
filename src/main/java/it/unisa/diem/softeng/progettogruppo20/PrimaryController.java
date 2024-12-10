@@ -128,7 +128,32 @@ public class PrimaryController implements Initializable {
     }
     
     @FXML
-    private void modificaContatto(ActionEvent event) {
+    private void modContatto(ActionEvent event) {
+        
+        Contatto selezione = tabellaContatti.getSelectionModel().getSelectedItem();
+        
+        nomeTfd.textProperty().set(selezione.getNome());
+        cognomeTfd.textProperty().set(selezione.getCognome());
+        
+        telTfd1.textProperty().set(selezione.getTel().getDati().get(0));
+        telTfd2.textProperty().set(selezione.getTel().getDati().get(1));
+        telTfd3.textProperty().set(selezione.getTel().getDati().get(2));
+        
+        emailTfd1.textProperty().set(selezione.getEmail().getDati().get(0));
+        emailTfd2.textProperty().set(selezione.getEmail().getDati().get(1));
+        emailTfd3.textProperty().set(selezione.getEmail().getDati().get(2));
+         
+    }
+    
+   @FXML
+    private void confermaModifica(){
+        
+        Contatto selezione = tabellaContatti.getSelectionModel().getSelectedItem();
+        
+        listaContatti.modificaContatto(selezione, nomeTfd.getText(), cognomeTfd.getText(), telTfd1.getText(), telTfd2.getText(), telTfd3.getText(), emailTfd1.getText(), emailTfd2.getText(), emailTfd3.getText());
+        aggiornamentoTableView();
+        
+        puliziaCampi();
     }
 
     @FXML
