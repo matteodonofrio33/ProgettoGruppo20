@@ -112,13 +112,19 @@ public class PrimaryController implements Initializable {
         email3Clm.setCellValueFactory(s -> new SimpleStringProperty(s.getValue().getEmail().getDati().get(2)));
 
         tabellaContatti.setItems(contatti);
-
+        controllerBottoneAggiungi();
     }
 
     private void aggiornamentoTableView() {
         contatti.setAll(listaContatti.getElenco());
     }
 
+    private void controllerBottoneAggiungi(){
+        BooleanBinding cond1 = Bindings.isEmpty(nomeTfd.textProperty());
+        BooleanBinding cond2 = Bindings.isEmpty(cognomeTfd.textProperty());
+        aggiungiBtn.disableProperty().bind(Bindings.and(cond1, cond2));
+    }
+    
     @FXML
     private void modificaContatto(ActionEvent event) {
     }
@@ -127,9 +133,6 @@ public class PrimaryController implements Initializable {
     private void cercaContatto(ActionEvent event) {
     }
 
-    @FXML
-    private void removeContact(ActionEvent event) {
-    }
 
     @FXML
     private void addContact() {
@@ -166,7 +169,8 @@ public class PrimaryController implements Initializable {
     @FXML
     private void chiusuraProgramma() {
         Platform.exit();
-
     }
+    
+    
 
 }
