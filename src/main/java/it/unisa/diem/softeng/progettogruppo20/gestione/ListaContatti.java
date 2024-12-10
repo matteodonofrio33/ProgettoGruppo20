@@ -155,8 +155,8 @@ public void aggiungiContatto(String nome, String cognome, String telefono1, Stri
      *
      * @return true quando la rimozione ha esito positivo, altrimenti false
      */
-    public boolean rimuoviContatto(Contatto c) {
-        return true;
+    public void rimuoviContatto(Contatto c) {
+        elenco.remove(c);
     }
 
     /**

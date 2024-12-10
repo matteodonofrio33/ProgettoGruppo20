@@ -160,7 +160,7 @@ public class PrimaryController implements Initializable {
         Contatto selezione = tabellaContatti.getSelectionModel().getSelectedItem();
 
         if (selezione != null) {
-            listaContatti.getElenco().remove(selezione);
+            listaContatti.rimuoviContatto(selezione);
             aggiornamentoTableView();
 
         }
