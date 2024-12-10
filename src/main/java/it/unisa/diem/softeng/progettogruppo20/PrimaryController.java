@@ -92,6 +92,8 @@ public class PrimaryController implements Initializable {
     //lista osservabile
     private ListaContatti listaContatti;
     private ObservableList<Contatto> contatti;
+   // private ObservableList<Contatto> listaFiltrata;
+    
 
     /* private void switchToSecondary() throws IOException {
         App.setRoot("secondary");
@@ -131,6 +133,15 @@ public class PrimaryController implements Initializable {
 
     @FXML
     private void cercaContatto(ActionEvent event) {
+        String nome=nomeTfd.getText();
+        String cognome=cognomeTfd.getText();
+        ListaContatti listaCercata = new ListaContatti();
+        listaCercata = listaContatti.cercaContatto(nome, cognome);
+        System.out.println("HO CERCATO: " +listaCercata);
+        
+        contatti.setAll(listaCercata.getElenco());
+       // contatti= FXCollections.observableArrayList();
+       // tabellaContatti.setItems(contatti);
     }
 
 
