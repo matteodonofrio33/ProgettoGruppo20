@@ -136,7 +136,8 @@ public class PrimaryController implements Initializable {
 
     @FXML
     private void addContact(ActionEvent event) {
-        System.out.println("CIAOOOO");
+        listaContatti.aggiungiContatto(nomeTfd.getText(), cognomeTfd.getText(), telTfd1.getText(), telTfd2.getText(), telTfd3.getText(), emailTfd1.getText(), emailTfd2.getText(), emailTfd3.getText());
+        updateTableView();
     }
 
 }

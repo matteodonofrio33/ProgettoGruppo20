@@ -37,14 +37,18 @@ public class Contatto implements Comparable {
      * @see Email()
      * @see aggiungiDato()
      */
-    public Contatto(String nome, String cognome, String telefono, String email) {
+    public Contatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
         this.nome = nome;
         this.cognome = cognome;
         this.tel = new Telefono();
         this.email = new Email();
 
-        this.tel.aggiungiDato(telefono);
-        this.email.aggiungiDato(email);
+        this.tel.aggiungiDato(telefono1);
+        this.tel.aggiungiDato(telefono2);
+        this.tel.aggiungiDato(telefono3);
+        this.email.aggiungiDato(email1);
+        this.email.aggiungiDato(email2);
+        this.email.aggiungiDato(email3);
     }
 
     /**
