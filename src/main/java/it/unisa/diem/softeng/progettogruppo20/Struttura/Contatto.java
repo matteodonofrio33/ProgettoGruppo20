@@ -11,7 +11,7 @@
  */
 package it.unisa.diem.softeng.progettogruppo20.Struttura;
 
-public class Contatto implements Comparable {
+public class Contatto implements Comparable<Contatto> {
 
     private String nome;
     private String cognome;
@@ -84,16 +84,40 @@ public class Contatto implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        Contatto c = (Contatto) o;
+    public int compareTo(Contatto c) {
 
         if (!this.cognome.equals(c.cognome)) {
             return this.cognome.compareTo(c.cognome);
         } else {
             return this.nome.compareTo(c.nome);
         }
+
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+
+        if (this == o) {
+            return true;
+        }
+
+        
+        if (!(o instanceof Contatto)) {
+             return false;
+        }
+         
+        Contatto c = (Contatto) o;
+        
+        return this.cognome.equals(c.cognome) && this.nome.equals(c.nome);
+    
+
+    
+        
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -109,6 +133,5 @@ public class Contatto implements Comparable {
     public Dato getEmail() {
         return email;
     }
-    
-    
+
 }
