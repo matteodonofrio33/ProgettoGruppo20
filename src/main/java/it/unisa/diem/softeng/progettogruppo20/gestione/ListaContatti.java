@@ -8,6 +8,8 @@ package it.unisa.diem.softeng.progettogruppo20.gestione;
 import it.unisa.diem.softeng.progettogruppo20.Struttura.Contatto;
 import java.util.Set;
 import java.util.TreeSet;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * @file ListaContatti.java
@@ -60,7 +62,7 @@ public class ListaContatti {
      *
      * @return true quando l'aggiunta ha esito positivo, altrimenti false
      */
-public void aggiungiContatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
+    public void aggiungiContatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
         boolean presente = false;
 
         for (Contatto cnt : elenco) {
@@ -122,7 +124,6 @@ public void aggiungiContatto(String nome, String cognome, String telefono1, Stri
 
     }
 
-
     /**
      * @brief Cerca il contatto.
      *
@@ -138,7 +139,16 @@ public void aggiungiContatto(String nome, String cognome, String telefono1, Stri
      * @return lista di contatti.
      */
     public ListaContatti cercaContatto(String nome, String cognome) {
-        return null;
+        ListaContatti listaFiltrata = new ListaContatti();
+
+        for (Contatto c : elenco) {
+            if ((nome.isEmpty() || c.getNome().toLowerCase().contains(nome.toLowerCase())) && (cognome.isEmpty() || c.getCognome().toLowerCase().contains(cognome.toLowerCase()))) {
+                
+                listaFiltrata.aggiungiContatto(c.getNome(), c.getCognome(), c.getTel().getDati().get(0), c.getTel().getDati().get(1), c.getTel().getDati().get(2),
+                                                c.getEmail().getDati().get(0), c.getEmail().getDati().get(1), c.getEmail().getDati().get(2));
+            }
+        }
+        return listaFiltrata;
     }
 
     /**
@@ -195,41 +205,40 @@ public void aggiungiContatto(String nome, String cognome, String telefono1, Stri
     public boolean modificaContatto(String nomeVecchio, String nomeNuovo, String cognomeVecchio, String cognomeNuovo, String emailVecchia, String emailNuova, String telefonoVecchio, String telefonoNuovo) {
         return true;
     }
-    
+
     @Override
     public String toString() {
-        
-        StringBuffer sb=new StringBuffer();
-        
+
+        StringBuffer sb = new StringBuffer();
+
         sb.append("NOME,COGNOME,TELEFONO1,TELEFONO2,TELEFONO3,EMAIL1,EMAIL2,EMAIL3");
-        
-        for(Contatto c : elenco) {
+
+        for (Contatto c : elenco) {
             sb.append(formattazioneCSV(c.getNome())).append(",");
             sb.append(formattazioneCSV(c.getCognome())).append(",");
-            for(String telefono : c.getTel().getDati()){  
-                sb.append(formattazioneCSV(telefono)).append(",");  
+            for (String telefono : c.getTel().getDati()) {
+                sb.append(formattazioneCSV(telefono)).append(",");
             }
-            for(String email : c.getEmail().getDati()){
+            for (String email : c.getEmail().getDati()) {
                 sb.append(formattazioneCSV(email)).append(",");
             }
         }
         return sb.toString();
     }
-    
+
     private String formattazioneCSV(String valore) {
-        if(valore==null)
+        if (valore == null) {
             return "";
-        if(valore.contains(",") || valore.contains("\n") || valore.contains("\"")) {
+        }
+        if (valore.contains(",") || valore.contains("\n") || valore.contains("\"")) {
             return "\"" + valore.replace("\"", "\"\"") + "\"";
         }
-        
+
         return valore;
     }
 
     public Set<Contatto> getElenco() {
         return elenco;
     }
-    
-    
-    
+
 }
