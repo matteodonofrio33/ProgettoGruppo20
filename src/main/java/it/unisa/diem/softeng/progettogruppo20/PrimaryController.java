@@ -14,6 +14,7 @@ import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -23,40 +24,40 @@ public class PrimaryController implements Initializable {
 
     //dichiarazione bottoni presenti nell'interfaccia:
     @FXML
-    private TextField nomeTfd;
+    private javafx.scene.control.TextField nomeTfd;
 
     @FXML
-    private TextField cognomeTfd;
+    private javafx.scene.control.TextField cognomeTfd;
 
     @FXML
-    private TextField telTfd1;
+    private javafx.scene.control.TextField telTfd1;
 
     @FXML
-    private TextField telTfd2;
+    private javafx.scene.control.TextField telTfd2;
 
     @FXML
-    private TextField telTfd3;
+    private javafx.scene.control.TextField telTfd3;
 
     @FXML
-    private TextField emailTfd1;
+    private javafx.scene.control.TextField emailTfd1;
 
     @FXML
-    private TextField emailTfd2;
+    private javafx.scene.control.TextField emailTfd2;
 
     @FXML
-    private TextField emailTfd3;//
+    private javafx.scene.control.TextField emailTfd3;//
 
     @FXML
-    private Button aggiungiBtn;
+    private javafx.scene.control.Button aggiungiBtn;
 
     @FXML
-    private Button rimuoviBtn;
+    private javafx.scene.control.Button rimuoviBtn;
 
     @FXML
-    private Button cercaBtn;
+    private javafx.scene.control.Button cercaBtn;
 
     @FXML
-    private Button modificaBtn;
+    private javafx.scene.control.Button modificaBtn;
 
     //dichiarazione tabella:
     @FXML
@@ -94,10 +95,9 @@ public class PrimaryController implements Initializable {
 
     
     
-    @FXML
-    private void switchToSecondary() throws IOException {
+   /* private void switchToSecondary() throws IOException {
         App.setRoot("secondary");
-    }
+    }*/
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -120,6 +120,23 @@ public class PrimaryController implements Initializable {
     
     private void updateTableView(){
         contatti.setAll(listaContatti.getElenco());
+    }
+
+    @FXML
+    private void modificaContatto(ActionEvent event) {
+    }
+
+    @FXML
+    private void cercaContatto(ActionEvent event) {
+    }
+
+    @FXML
+    private void removeContact(ActionEvent event) {
+    }
+
+    @FXML
+    private void addContact(ActionEvent event) {
+        System.out.println("CIAOOOO");
     }
 
 }
