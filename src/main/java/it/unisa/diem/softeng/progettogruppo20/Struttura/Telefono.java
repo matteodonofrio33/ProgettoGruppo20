@@ -5,6 +5,9 @@
  */
 package it.unisa.diem.softeng.progettogruppo20.Struttura;
 
+import static java.lang.Character.isLetter;
+import java.util.List;
+
 /**
  * @file Telefono.java
  * @brief Classe che estende la classe Dato e ne riscrive i metodi.
@@ -29,5 +32,6 @@ public class Telefono extends Dato {
     protected boolean modificaDato(String telefonoVecchio, String telefonoNuovo) {
         return true;
     }
+    
 
 }
