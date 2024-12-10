@@ -77,12 +77,12 @@ public class Contatto implements Comparable<Contatto> {
      * @see modificaDato()
      * @return se la modifica è avvenuta con successo ritorna true, altrimenti
      * false
-     */
+     *
     protected boolean modifica(String nomeNuovo, String cognomeNuovo, String emailVecchia, String emailNuova, String telefonoVecchio, String telefonoNuovo) {
 
         return true;
     }
-
+*/
     @Override
     public int compareTo(Contatto c) {
 
@@ -133,5 +133,15 @@ public class Contatto implements Comparable<Contatto> {
     public Email getEmail() {
         return email;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+    
+    
 
 }
