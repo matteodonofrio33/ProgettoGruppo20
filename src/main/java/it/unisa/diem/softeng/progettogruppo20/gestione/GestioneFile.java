@@ -8,6 +8,7 @@
  */
 package it.unisa.diem.softeng.progettogruppo20.gestione;
 
+import it.unisa.diem.softeng.progettogruppo20.Struttura.Contatto;
 import it.unisa.diem.softeng.progettogruppo20.gestione.ListaContatti;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -39,9 +40,29 @@ public class GestioneFile {
     public void esporta(ListaContatti listaContatti) throws IOException {
 
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(this.fileName)))) {
-            pw.print(listaContatti.toString());
-        }
+            // Scrive l'intestazione del CSV
+            pw.println("NOME;COGNOME;TELEFONO1;TELEFONO2;TELEFONO3;EMAIL1;EMAIL2;EMAIL3");
 
+            for (Contatto c : listaContatti.getElenco()) {
+                pw.print(c.getNome());
+                pw.append(';');
+                pw.print(c.getCognome());
+                pw.append(';');
+                pw.print(c.getTel().getDati().get(0));
+                pw.append(';');
+                pw.print(c.getTel().getDati().get(1));
+                pw.append(';');
+                pw.print(c.getTel().getDati().get(2));
+                pw.append(';');
+                pw.print(c.getEmail().getDati().get(0));
+                pw.append(';');
+                pw.print(c.getEmail().getDati().get(1));
+                pw.append(';');
+                pw.print(c.getEmail().getDati().get(2));
+                pw.append('\n');
+            }
+        }
+        System.out.println("ESPORTAZIONE RIUSCITA IN GESTIONE FILE");
     }
 
     /**
@@ -68,9 +89,9 @@ public class GestioneFile {
                 String telefono1 = s.next();
                 String telefono2 = s.next();
                 String telefono3 = s.next();
-                String email1=s.next();
-                String email2=s.next();
-                String email3=s.next();
+                String email1 = s.next();
+                String email2 = s.next();
+                String email3 = s.next();
                 lista.aggiungiContatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
             }
         }

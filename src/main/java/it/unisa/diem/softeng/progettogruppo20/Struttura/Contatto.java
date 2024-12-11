@@ -83,13 +83,15 @@ public class Contatto implements Comparable<Contatto> {
         return true;
     }
 */
+    
+    
     @Override
     public int compareTo(Contatto c) {
 
-        if (!this.cognome.equals(c.cognome)) {
-            return this.cognome.compareTo(c.cognome);
+        if (!this.cognome.toLowerCase().equals(c.cognome.toLowerCase())) {
+            return this.cognome.toLowerCase().compareTo(c.cognome.toLowerCase());
         } else {
-            return this.nome.compareTo(c.nome);
+            return this.nome.toLowerCase().compareTo(c.nome.toLowerCase());
         }
 
     }
@@ -111,7 +113,7 @@ public class Contatto implements Comparable<Contatto> {
          
         Contatto c = (Contatto) o;
         
-        return this.cognome.equals(c.cognome) && this.nome.equals(c.nome);
+        return this.cognome.toLowerCase().equals(c.cognome.toLowerCase()) && this.nome.toLowerCase().equals(c.nome.toLowerCase());
     
 
     
