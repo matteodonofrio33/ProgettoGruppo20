@@ -60,6 +60,9 @@ public class PrimaryController implements Initializable {
     @FXML
     private javafx.scene.control.Button modificaBtn;
 
+    @FXML
+    private javafx.scene.control.Button confermaBtn;
+
     //dichiarazione tabella:
     @FXML
     private TableView<Contatto> tabellaContatti;
@@ -112,52 +115,52 @@ public class PrimaryController implements Initializable {
         email3Clm.setCellValueFactory(s -> new SimpleStringProperty(s.getValue().getEmail().getDati().get(2)));
 
         tabellaContatti.setItems(contatti);
-        controllerBottoneAggiungi();
+        controllerBottoneAggiungi(aggiungiBtn);
     }
 
     private void aggiornamentoTableView() {
         contatti.setAll(listaContatti.getElenco());
     }
 
-    private void controllerBottoneAggiungi(){
+    private void controllerBottoneAggiungi(javafx.scene.control.Button bottone) {
         BooleanBinding cond1 = Bindings.isEmpty(nomeTfd.textProperty());
         BooleanBinding cond2 = Bindings.isEmpty(cognomeTfd.textProperty());
-        aggiungiBtn.disableProperty().bind(Bindings.and(cond1, cond2));
+        bottone.disableProperty().bind(Bindings.and(cond1, cond2));
     }
-    
+
     @FXML
     private void modContatto(ActionEvent event) {
-        
+
         Contatto selezione = tabellaContatti.getSelectionModel().getSelectedItem();
-        
+
         nomeTfd.textProperty().set(selezione.getNome());
         cognomeTfd.textProperty().set(selezione.getCognome());
-        
+
         telTfd1.textProperty().set(selezione.getTel().getDati().get(0));
         telTfd2.textProperty().set(selezione.getTel().getDati().get(1));
         telTfd3.textProperty().set(selezione.getTel().getDati().get(2));
-        
+
         emailTfd1.textProperty().set(selezione.getEmail().getDati().get(0));
         emailTfd2.textProperty().set(selezione.getEmail().getDati().get(1));
         emailTfd3.textProperty().set(selezione.getEmail().getDati().get(2));
-         
+
+        controllerBottoneAggiungi(confermaBtn);
     }
-    
-   @FXML
-    private void confermaModifica(){
-        
+
+    @FXML
+    private void confermaModifica() {
+
         Contatto selezione = tabellaContatti.getSelectionModel().getSelectedItem();
-        
+
         listaContatti.modificaContatto(selezione, nomeTfd.getText(), cognomeTfd.getText(), telTfd1.getText(), telTfd2.getText(), telTfd3.getText(), emailTfd1.getText(), emailTfd2.getText(), emailTfd3.getText());
         aggiornamentoTableView();
-        
+
         puliziaCampi();
     }
 
     @FXML
     private void cercaContatto(ActionEvent event) {
     }
-
 
     @FXML
     private void addContact() {
@@ -195,7 +198,5 @@ public class PrimaryController implements Initializable {
     private void chiusuraProgramma() {
         Platform.exit();
     }
-    
-    
 
 }
