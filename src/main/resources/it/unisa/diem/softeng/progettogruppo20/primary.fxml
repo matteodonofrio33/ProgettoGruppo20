@@ -26,7 +26,7 @@
                       <Menu mnemonicParsing="false" text="File">
                         <items>
                           <MenuItem mnemonicParsing="false" onAction="#apriFileCSV" text="Apri" />
-                              <MenuItem mnemonicParsing="false" text="Salva" />
+                              <MenuItem mnemonicParsing="false" onAction="#salvaFileCSV" text="Salva" />
                               <MenuItem mnemonicParsing="false" onAction="#chiusuraProgramma" text="Esci" />
                         </items>
                       </Menu>
