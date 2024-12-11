@@ -41,6 +41,23 @@ public class ListaContatti {
         return elenco;
         }
      */
+    
+    /**
+     * @brief Metodo che verifica che non ci sono numeri di telefono duplicati
+     * 
+     * 
+     * questo metodo verifica che all'interno della struttura dati non siano presenti duplicati tramite il controllo dei numeri di telefono:
+     * viene fatta scorrere la struttura, si accede al telefonoN e lo si confronta con quello passato in input.
+     * 
+     * @pre  La struttura deve essere popolata
+     * @post Il metodo ritorna true se il numero è già presente
+     * @invariant la struttura non viene modificata
+     * 
+     * @param[in] telefono1 Eventuale numero di telefono del Contatto su cui viene fatto il controllo
+     * @param[in] telefono2 Eventuale numero di telefono del Contatto su cui viene fatto il controllo
+     * @param[in] telefono3 Eventuale numero di telefono del Contatto su cui viene fatto il controllo
+     * @return true se l'operazione ha successo, altrimenti false
+     */
     private boolean verificaDuplicatiTelefono(String telefono1, String telefono2, String telefono3) {
 
         boolean presente = false;
@@ -72,7 +89,23 @@ public class ListaContatti {
 
         return presente;
     }
-
+/**
+ * @brief Metodo che verifica che non ci sono indirizzi email duplicati
+ * 
+ * Questo metodo verifica che all'interno della struttura dati non siano presenti duplicati tramite il controllo degli indirizzi email:
+ * viene fatta scorrere la struttura, si accede all'indirizzo emailN e lo si confronta con quello passato in input.
+ * 
+ * 
+ * @pre La struttura deve essere popolata
+ * @post Il metodo ritorna true se l'indirizzo email è già presente
+ * @invariant la struttura non viene modificata
+ * 
+ * @param[in] email1 Eventuale indirizzo email del Contatto su cui viene fatto il controllo
+ * @param[in] email2 Eventuale indirizzo email del Contatto su cui viene fatto il controllo
+ * @param[in] email3 Eventuale indirizzo email del Contatto su cui viene fatto il controllo
+ * 
+ * @return true se l'operazione ha successo, altrimenti false
+ */
     private boolean verificaDuplicatiEmail(String email1, String email2, String email3) {
 
         boolean presente = false;
@@ -118,12 +151,13 @@ public class ListaContatti {
      * @param[in] nome Eventuale nome del contatto che si vuole aggiungere.
      * @param[in] cognome Eventuale cognome del contatto che si vuole
      * aggiungere.
-     * @param[in] telefono Eventuale numero di telefono del contatto che si
-     * vuole aggiungere.
-     * @param[in] email Eventuale indirizzo email del contatto che si vuole
-     * aggiungere.
+     * @param[in] telefono1 Uno degli eventuali numeri di telefono che si vogliono aggiungere 
+     * @param[in] telefono2 Uno degli eventuali numeri di telefono che si vogliono aggiungere 
+     * @param[in] telefono3 Uno degli eventuali numeri di telefono che si vogliono aggiungere 
+     * @param[in] email1 Uno degli eventuali indirizzi email che si vuole aggiungere
+     * @param[in] email2 Uno degli eventuali indirizzi email che si vuole aggiungere
+     * @param[in] email3 Uno degli eventuali indirizzi email che si vuole aggiungere
      *
-     * @return true quando l'aggiunta ha esito positivo, altrimenti false
      */
     public void aggiungiContatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
         boolean presente = false;
@@ -178,7 +212,6 @@ public class ListaContatti {
      * @param[in] c Contatto da rimuovere
      * @see cercaContatto()
      *
-     * @return true quando la rimozione ha esito positivo, altrimenti false
      */
     public void rimuoviContatto(Contatto c) {
         elenco.remove(c);
