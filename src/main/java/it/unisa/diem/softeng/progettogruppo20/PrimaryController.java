@@ -133,16 +133,16 @@ public class PrimaryController implements Initializable {
 
         Contatto selezione = tabellaContatti.getSelectionModel().getSelectedItem();
 
-        nomeTfd.textProperty().set(selezione.getNome());
-        cognomeTfd.textProperty().set(selezione.getCognome());
+        nomeTfd.textProperty().setValue(selezione.getNome());
+        cognomeTfd.textProperty().setValue(selezione.getCognome());
 
-        telTfd1.textProperty().set(selezione.getTel().getDati().get(0));
-        telTfd2.textProperty().set(selezione.getTel().getDati().get(1));
-        telTfd3.textProperty().set(selezione.getTel().getDati().get(2));
+        telTfd1.textProperty().setValue(selezione.getTel().getDati().get(0));
+        telTfd2.textProperty().setValue(selezione.getTel().getDati().get(1));
+        telTfd3.textProperty().setValue(selezione.getTel().getDati().get(2));
 
-        emailTfd1.textProperty().set(selezione.getEmail().getDati().get(0));
-        emailTfd2.textProperty().set(selezione.getEmail().getDati().get(1));
-        emailTfd3.textProperty().set(selezione.getEmail().getDati().get(2));
+        emailTfd1.textProperty().setValue(selezione.getEmail().getDati().get(0));
+        emailTfd2.textProperty().setValue(selezione.getEmail().getDati().get(1));
+        emailTfd3.textProperty().setValue(selezione.getEmail().getDati().get(2));
 
         controllerBottoneAggiungi(confermaBtn);
     }
