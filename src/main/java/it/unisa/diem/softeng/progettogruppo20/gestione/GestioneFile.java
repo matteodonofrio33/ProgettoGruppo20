@@ -8,6 +8,7 @@
  */
 package it.unisa.diem.softeng.progettogruppo20.gestione;
 
+import it.unisa.diem.softeng.progettogruppo20.Struttura.Contatto;
 import it.unisa.diem.softeng.progettogruppo20.gestione.ListaContatti;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -36,14 +37,27 @@ public class GestioneFile {
      *
      * @param[in] listaContatti è la lista che dev'essere salvata nel file
      */
-    public void esporta(ListaContatti listaContatti) throws IOException {
-
-        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(this.fileName)))) {
-            pw.print(listaContatti.toString());
+  public void esporta(ListaContatti listaContatti) throws IOException {
+    try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(this.fileName)))) {
+        // Scrive l'intestazione del CSV
+        pw.println("NOME,COGNOME,TELEFONO1,TELEFONO2,TELEFONO3,EMAIL1,EMAIL2,EMAIL3");
+        
+        // Scrive i contatti nel formato CSV
+        for (Contatto c : listaContatti.getElenco()) {  // Supponendo che getElenco() restituisca la lista di contatti
+            pw.printf("%s,%s,%s,%s,%s,%s,%s,%s%n", 
+                c.getNome(),
+                c.getCognome(),
+                c.getTel().getDati().get(0),  // Supponendo che getTel() ritorni un oggetto con un metodo getDati()
+                c.getTel().getDati().get(1),
+                c.getTel().getDati().get(2),
+                c.getEmail().getDati().get(0),
+                c.getEmail().getDati().get(1),
+                c.getEmail().getDati().get(2)
+            );
         }
-
     }
-
+    System.out.println("ESPORTAZIONE RIUSCITA IN GESTIONE FILE");
+}
     /**
      * @brief importa dal file denominato filename la listaContatti
      * @pre il file denominato filename non dev'essere vuoto

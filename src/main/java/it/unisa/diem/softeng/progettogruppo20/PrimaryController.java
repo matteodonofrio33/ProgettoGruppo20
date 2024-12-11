@@ -257,6 +257,29 @@ public class PrimaryController implements Initializable {
         } */
         
     }
+    
+    @FXML
+private void salvaFileCSV() throws IOException {
+    // Crea il file chooser per selezionare il percorso di salvataggio
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("File CSV", "*.csv"));
+    fileChooser.setTitle("Salva il file");
+
+    // Mostra la finestra di salvataggio e ottieni il file selezionato
+    File file = fileChooser.showSaveDialog(new Stage());
+
+    // Verifica che il file non sia null
+    if (file != null) {
+        // Crea l'oggetto GestioneFile passando il percorso del file
+        GestioneFile gf = new GestioneFile(file.getAbsolutePath());
+
+        // Esporta i dati della listaContatti nel file CSV
+        gf.esporta(listaContatti);
+        System.out.println("ESPORTAZIONE RIUSCITA");
+    } else {
+        System.out.println("File non selezionato");
+    }
+}
 
     private boolean fileNullo(File file) {
         return file == null;
@@ -267,4 +290,6 @@ public class PrimaryController implements Initializable {
         Platform.exit();
     }
 
+    
+    
 }
