@@ -12,6 +12,7 @@ import it.unisa.diem.softeng.progettogruppo20.Struttura.Contatto;
 import it.unisa.diem.softeng.progettogruppo20.gestione.ListaContatti;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -71,15 +72,15 @@ public class GestioneFile {
      * @post si otterrà un oggetto di ListaContatti
      * @return ritorna un oggetto di ListaContatti
      */
-    public ListaContatti importa() throws FileNotFoundException {
-
-        ListaContatti lista = new ListaContatti();
-
-        try (Scanner s = new Scanner(new BufferedReader(new FileReader(this.fileName)))) {
-            if (s.nextLine() == null) {
-                return lista;
-            }
-
+    public ListaContatti importa() throws IOException {
+        
+        String nomi=this.fileName.split("[.]")[0];
+        
+        ListaContatti nr=new ListaContatti();
+        
+        try(Scanner s=new Scanner(new BufferedReader(new FileReader(this.fileName)))) {
+            if(s.nextLine()==null) return nr;
+            
             s.useDelimiter("[;\n]");
             s.useLocale(Locale.US);
 
@@ -92,11 +93,12 @@ public class GestioneFile {
                 String email1 = s.next();
                 String email2 = s.next();
                 String email3 = s.next();
-                lista.aggiungiContatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
+                nr.aggiungiContatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
             }
         }
-
-        return lista;
+        
+        return nr;
+        
     }
 
 }

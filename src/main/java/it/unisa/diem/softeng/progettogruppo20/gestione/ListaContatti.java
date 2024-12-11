@@ -214,5 +214,9 @@ public class ListaContatti {
     public Set<Contatto> getElenco() {
         return elenco;
     }
-
+    
+    public void eliminaRubrica() {
+        elenco.clear();
+    }
 }
+
