@@ -8,9 +8,11 @@
  */
 package it.unisa.diem.softeng.progettogruppo20.gestione;
 
+import it.unisa.diem.softeng.progettogruppo20.Struttura.Contatto;
 import it.unisa.diem.softeng.progettogruppo20.gestione.ListaContatti;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -50,46 +52,33 @@ public class GestioneFile {
      * @post si otterrà un oggetto di ListaContatti
      * @return ritorna un oggetto di ListaContatti
      */
-public ListaContatti importa() throws FileNotFoundException {
-    ListaContatti lista = new ListaContatti();
-
-    try (Scanner s = new Scanner(new BufferedReader(new FileReader(this.fileName)))) {
-        s.useDelimiter("[;\n]");
-        s.useLocale(Locale.US);
-
-        while (s.hasNextLine()) {
-            String line = s.nextLine().trim();
-
-            // Salta righe vuote o di sola spaziatura
-            if (line.isEmpty()) {
-                continue;
+    public ListaContatti importa() throws IOException {
+        
+        String nomi=this.fileName.split("[.]")[0];
+        
+        ListaContatti nr=new ListaContatti();
+        
+        try(Scanner s=new Scanner(new BufferedReader(new FileReader(this.fileName)))) {
+            if(s.nextLine()==null) return nr;
+            
+            s.useDelimiter("[;\n]");
+            s.useLocale(Locale.US);
+            
+            while(s.hasNext()) {
+                String nome=s.next();
+                String cognome=s.next();
+                String telefono1=s.next();
+                String telefono2=s.next();
+                String telefono3=s.next();
+                String email1=s.next();
+                String email2=s.next();
+                String email3=s.next();
+                nr.aggiungiContatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
             }
-
-            String[] dati = line.split(";");
-            if (dati.length < 2) { // Minimo nome e cognome
-                System.err.println("Riga malformata: " + line);
-                continue;
-            }
-
-            String nome = dati[0];
-            String cognome = dati[1];
-            String telefono1 = (dati.length > 2) ? dati[2] : "";
-            String telefono2 = (dati.length > 3) ? dati[3] : "";
-            String telefono3 = (dati.length > 4) ? dati[4] : "";
-            String email1 = (dati.length > 5) ? dati[5] : "";
-            String email2 = (dati.length > 6) ? dati[6] : "";
-            String email3 = (dati.length > 7) ? dati[7] : "";
-
-            lista.aggiungiContatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
         }
-    } catch (FileNotFoundException e) {
-        throw e; // Rilancia l'eccezione
-    } catch (Exception e) {
-        System.err.println("Errore durante l'importazione: " + e.getMessage());
+        
+        return nr;
+        
     }
-
-    return lista;
-}
-
 
 }

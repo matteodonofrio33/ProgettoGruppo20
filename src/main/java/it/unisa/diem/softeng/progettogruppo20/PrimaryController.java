@@ -207,55 +207,21 @@ public class PrimaryController implements Initializable {
     }
 
     @FXML
-
-    void apriFileCSV() throws FileNotFoundException, IOException {
-        FileChooser fc = new FileChooser();
-        fc.setTitle("Apri il file");
-
-        // Mostra il dialogo di selezione file
-        File file = fc.showOpenDialog(null); // Usa null se non hai uno stage principale da passare
-
-        // Controlla se l'utente ha selezionato un file
-        if (file == null) {
-            // Mostra un messaggio all'utente
-            System.out.println("Nessun file selezionato.");
-            return;
+    private void apriFileCSV() throws FileNotFoundException, IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("File CSV", "*.csv"));
+        fileChooser.setTitle("Apri File CSV");
+        File file = fileChooser.showOpenDialog(new Stage());
+        if (file.exists()) {
+            System.out.println("Il file esiste\n");
+            String nome = file.getName();
+            GestioneFile gf = new GestioneFile(nome);
+            listaContatti.eliminaRubrica();
+            listaContatti = gf.importa();
+            tabellaContatti.getItems().clear();
+            aggiornamentoTableView();
         }
 
-        // Ottieni il percorso completo del file
-        String filePath = file.getAbsolutePath();
-
-        listaContatti.eliminaRubrica();
-        ListaContatti nuovaRubrica;
-        GestioneFile gf = new GestioneFile(filePath);
-        nuovaRubrica=gf.importa();
-        tabellaContatti.getItems().clear();
-        tabellaContatti.setItems((ObservableList<Contatto>) nuovaRubrica.getElenco());
-        aggiornamentoTableView();
-        System.out.println("File importato correttamente.");
-        
-        /*try {
-            // Crea l'oggetto GestioneFile e importa i dati
-            ListaContatti nuovaRubrica;
-            GestioneFile gf = new GestioneFile(filePath);
-            nuovaRubrica=gf.importa();
-            
-            //listaContatti.eliminaRubrica();
-            tabellaContatti.getItems().clear();
-            tabellaContatti.setItems((ObservableList<Contatto>) nuovaRubrica.getElenco());
-            aggiornamentoTableView();
-
-            // Facoltativo: conferma all'utente che l'importazione è stata completata
-            System.out.println("File importato correttamente.");*/
-        /*} catch (FileNotFoundException e) {
-            // Gestisci l'eccezione in modo più user-friendly
-            System.err.println("File non trovato: " + e.getMessage());
-            // Facoltativo: mostra un'alert grafica all'utente
-        } catch (Exception e) {
-            // Gestisci eventuali altre eccezioni
-            System.err.println("Errore durante l'importazione: " + e.getMessage());
-        } */
-        
     }
 
     private boolean fileNullo(File file) {
