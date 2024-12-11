@@ -31,8 +31,12 @@ public class Contatto implements Comparable<Contatto> {
      *
      * @param[in] nome è il nome del Contatto
      * @param[in] cognome è il cognome del Contatto
-     * @param[in] telefono è il numero del Contatto
-     * @param[in] email è l'email del Contatto
+     * @param[in] telefono1 Uno degli eventuali numeri di telefono del Contatto
+     * @param[in] telefono2 Uno degli eventuali numeri di telefono del Contatto
+     * @param[in] telefono3 Uno degli eventuali numeri di telefono del Contatto
+     * @param[in] email1 Uno degli eventuali indirizzi email del Contatto
+     * @param[in] email2 Uno degli eventuali indirizzi email del Contatto
+     * @param[in] email3 Uno degli eventuali indirizzi email del Contatto
      * @see Telefono()
      * @see Email()
      * @see aggiungiDato()

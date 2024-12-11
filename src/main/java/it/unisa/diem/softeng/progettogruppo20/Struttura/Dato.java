@@ -29,7 +29,7 @@ public abstract class Dato {
     }
 
     /**
-     * @brief metodo che controlla che la Stringa inserita in input sia
+     * @brief Metodo che controlla che la Stringa inserita in input sia
      * contenuta nella lista.
      *
      * @pre La lista non è vuota.
@@ -45,7 +45,7 @@ public abstract class Dato {
     }
 
     /**
-     * @brief metodo che aggiunge un dato all'interno della lista.
+     * @brief Metodo che aggiunge un dato all'interno della lista.
      *
      * See also: limiteRaggiunto()
      *
@@ -66,7 +66,7 @@ public abstract class Dato {
     }
 
     /**
-     * @brief metodo che rimuove un dato dalla lista.
+     * @brief Metodo che rimuove un dato dalla lista.
      *
      * Questo metodo controlla che il dato sia contenuto nella lista e in tal
      * caso lo rimuove con una remove.
@@ -81,7 +81,7 @@ public abstract class Dato {
     }
 
     /**
-     * @brief metodo astratto che modifica un dato all'interno della lista.
+     * @brief Metodo astratto che modifica un dato all'interno della lista.
      *
      * See also: aggiungiDato(), rimuoviDato()
      *
