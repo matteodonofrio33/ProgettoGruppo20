@@ -55,38 +55,7 @@ public class Contatto implements Comparable<Contatto> {
         this.email.aggiungiDato(email3);
     }
 
-    /**
-     * @brief modifica il contatto attuale con i parametri nuovi
-     *
-     * See also: modificaDato()
-     *
-     * Se il parametroNuovo è non nullo allora sovrascrive il parametroVecchio
-     * Se devono essere modificate l'emailVecchia oppure il telefonoVecchio
-     * allora viene invocato modificaDato(..)
-     *
-     * @pre ' nomeNuovo!=null || cognomeNuovo!=null || emailNuova!=null ||
-     * telefonoNuovo!=null '
-     * @post il contatto è stato modificato
-     * @invariant i dati del contatto ai quali sono associati (parametroNuovo ==
-     * null) non devono essere modificati
-     *
-     * @param[in] nomeNuovo sovrascrive il nome dell'istanza corrente
-     * @param[in] cognomeNuovo sovrascrive il cognome dell'istanza corrente
-     * @param[in] emailVecchia è l'email che si vuole sovrascrivere
-     * @param[in] emailNuova è l'email che sovrascrive emailVecchia
-     * @param[in] telefonoVecchio è il numero di telefono che si vuole
-     * sovrascrivere
-     * @param[in] telefonoNuovo è il numero di telefono che sovrascrive
-     * telefonoVecchio
-     * @see modificaDato()
-     * @return se la modifica è avvenuta con successo ritorna true, altrimenti
-     * false
-     *
-    protected boolean modifica(String nomeNuovo, String cognomeNuovo, String emailVecchia, String emailNuova, String telefonoVecchio, String telefonoNuovo) {
 
-        return true;
-    }
-*/
     @Override
     public int compareTo(Contatto c) {
 
