@@ -36,60 +36,64 @@ public class ListaContatti {
         this.elenco = new TreeSet<Contatto>();
     }
 
-    /*
-        public Set<Contatto> getElenco(){
-        return elenco;
-        }
-     */
     private boolean verificaDuplicatiTelefono(String telefono1, String telefono2, String telefono3) {
-        
 
         boolean presente = false;
 
         for (Contatto cnt : elenco) {
-            if( !telefono1.isEmpty() && (!telefono1.equals(cnt.getTel().getDati().get(0)))  ){
-                if(cnt.getTel().contiene(telefono1)){
-                     presente = true;
+            if (!telefono1.isEmpty() && (!telefono1.equals(cnt.getTel().getDati().get(0)))) {
+
+                if (cnt.getTel().contiene(telefono1)) {
+
+                    presente = true;
                 }
             }
-            
-            if( !telefono2.isEmpty() && (!telefono2.equals(cnt.getTel().getDati().get(1)))  ){
-                if(cnt.getTel().contiene(telefono2)){
-                     presente = true;
+
+            if (!telefono2.isEmpty() && (!telefono2.equals(cnt.getTel().getDati().get(1)))) {
+
+                if (cnt.getTel().contiene(telefono2)) {
+                    presente = true;
                 }
             }
-            
-            if( !telefono3.isEmpty() && (!telefono3.equals(cnt.getTel().getDati().get(2)))  ){
-                if(cnt.getTel().contiene(telefono3)){
-                     presente = true;
+
+            if (!telefono3.isEmpty() && (!telefono3.equals(cnt.getTel().getDati().get(2)))) {
+                
+                if (cnt.getTel().contiene(telefono3)) {
+                    presente = true;
                 }
             }
-            
-            
-            
-            
-            
 
         }
 
         return presente;
     }
-/*
-    private boolean verificaDuplicatiEmail(String email) {
 
-        System.out.println("VERIFICA DEI DUPLICATI EMAIL");
+    private boolean verificaDuplicatiEmail(String email1, String email2, String email3) {
 
         boolean presente = false;
 
         for (Contatto cnt : elenco) {
-            if ( (!email.isEmpty()) && cnt.getTel().contiene(email)) {
-                presente = true;
+            if (!email1.isEmpty() && (!email1.equals(cnt.getEmail().getDati().get(0)))) {
+                if (cnt.getEmail().contiene(email1)) {
+                    presente = true;
+                }
             }
 
+            if (!email2.isEmpty() && (!email2.equals(cnt.getEmail().getDati().get(1)))) {
+                if (cnt.getEmail().contiene(email2)) {
+                    presente = true;
+                }
+            }
+
+            if (!email3.isEmpty() && (!email3.equals(cnt.getEmail().getDati().get(2)))) {
+                if (cnt.getEmail().contiene(email3)) {
+                    presente = true;
+                }
+            }
         }
         return presente;
     }
-*/
+
     /**
      * @brief Metodo che aggiunge un contatto alla lista.
      *
@@ -112,36 +116,9 @@ public class ListaContatti {
      * @return true quando l'aggiunta ha esito positivo, altrimenti false
      */
     public void aggiungiContatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
-        
-        
 
-            
-            
-           if (/*!verificaDuplicatiEmail(email1, email2, email3) && */!verificaDuplicatiTelefono(telefono1, telefono2, telefono3)) {
-            
-            /*c.setNome(nomeNuovo);
-            c.setCognome(cognomeNuovo);
-            
-            c.getEmail().getDati().set(0, emailNuova1);
-            c.getEmail().getDati().set(1, emailNuova2);
-            c.getEmail().getDati().set(2, emailNuova3);
-            
-            c.getTel().getDati().set(0, telNuovo1);
-            c.getTel().getDati().set(1, telNuovo2);
-            c.getTel().getDati().set(2, telNuovo3);*/
-            
-            Contatto c = new Contatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
-                elenco.add(c);
-           }
-         
-                
-        
-        
-
-          
-        
-        
-        
+        Contatto c = new Contatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
+        elenco.add(c);
 
     }
 
@@ -223,52 +200,15 @@ public class ListaContatti {
      *
      * @return true quando il contatto viene modificato, altrimenti false
      */
-    
     public boolean modificaContatto(Contatto c, String nomeNuovo, String cognomeNuovo, String telNuovo1, String telNuovo2, String telNuovo3, String emailNuova1, String emailNuova2, String emailNuova3) {
 
-        
-           if (/*!verificaDuplicatiEmail(emailNuova1, emailNuova2, emailNuova3) &&*/ !verificaDuplicatiTelefono(telNuovo1, telNuovo2, telNuovo3)) {
-            
-            
+        if (!verificaDuplicatiEmail(emailNuova1, emailNuova2, emailNuova3) && !verificaDuplicatiTelefono(telNuovo1, telNuovo2, telNuovo3)) {
+
             rimuoviContatto(c);
             aggiungiContatto(nomeNuovo, cognomeNuovo, telNuovo1, telNuovo2, telNuovo3, emailNuova1, emailNuova2, emailNuova3);
-           }
-         
-        
-        
-       
+        }
+
         return true;
-    }
-
-    @Override
-    public String toString() {
-
-        StringBuffer sb = new StringBuffer();
-
-        sb.append("NOME,COGNOME,TELEFONO1,TELEFONO2,TELEFONO3,EMAIL1,EMAIL2,EMAIL3");
-
-        for (Contatto c : elenco) {
-            sb.append(formattazioneCSV(c.getNome())).append(",");
-            sb.append(formattazioneCSV(c.getCognome())).append(",");
-            for (String telefono : c.getTel().getDati()) {
-                sb.append(formattazioneCSV(telefono)).append(",");
-            }
-            for (String email : c.getEmail().getDati()) {
-                sb.append(formattazioneCSV(email)).append(",");
-            }
-        }
-        return sb.toString();
-    }
-
-    private String formattazioneCSV(String valore) {
-        if (valore == null) {
-            return "";
-        }
-        if (valore.contains(",") || valore.contains("\n") || valore.contains("\"")) {
-            return "\"" + valore.replace("\"", "\"\"") + "\"";
-        }
-
-        return valore;
     }
 
     public Set<Contatto> getElenco() {

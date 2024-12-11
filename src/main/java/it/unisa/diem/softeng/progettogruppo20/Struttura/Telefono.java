@@ -23,15 +23,4 @@ public class Telefono extends Dato {
         super();
     }
 
-    @Override
-    protected String getTipo() {
-        return "Telefono";
-    }
-
-    @Override
-    protected boolean modificaDato(String telefonoVecchio, String telefonoNuovo) {
-        return true;
-    }
-    
-
 }

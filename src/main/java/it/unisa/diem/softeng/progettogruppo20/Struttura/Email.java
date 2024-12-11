@@ -23,15 +23,4 @@ public class Email extends Dato {
         super();
     }
 
-    @Override
-    protected String getTipo() {
-        return "Email";
-    }
-
-    @Override
-    protected boolean modificaDato(String emailVecchia, String emailNuova) {
-        return true;
-    }
-    
-
 }
