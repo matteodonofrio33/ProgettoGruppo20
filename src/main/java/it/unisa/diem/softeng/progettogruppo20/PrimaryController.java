@@ -136,6 +136,7 @@ public class PrimaryController implements Initializable {
         cognomeTfd.textProperty().set(selezione.getCognome());
         
         telTfd1.textProperty().set(selezione.getTel().getDati().get(0));
+        
         telTfd2.textProperty().set(selezione.getTel().getDati().get(1));
         telTfd3.textProperty().set(selezione.getTel().getDati().get(2));
         
@@ -206,6 +207,9 @@ public class PrimaryController implements Initializable {
     private void chiusuraProgramma() {
         Platform.exit();
     }
+    
+    
+    
     
     
 

@@ -42,68 +42,54 @@ public class ListaContatti {
         }
      */
     private boolean verificaDuplicatiTelefono(String telefono1, String telefono2, String telefono3) {
+        
 
         boolean presente = false;
 
         for (Contatto cnt : elenco) {
-
-            for (String telefono : cnt.getTel().getDati()) {
-
-                if (telefono1 != null && (!telefono.isEmpty()) && telefono.equals(telefono1)) {
-
-                    presente = true;
-
+            if( !telefono1.isEmpty() && (!telefono1.equals(cnt.getTel().getDati().get(0)))  ){
+                if(cnt.getTel().contiene(telefono1)){
+                     presente = true;
                 }
-
-                if (telefono2 != null && (!telefono.isEmpty()) && telefono.equals(telefono2)) {
-
-                    presente = true;
-
-                }
-
-                if (telefono3 != null && (!telefono.isEmpty()) && telefono.equals(telefono3)) {
-
-                    presente = true;
-
-                }
-
             }
+            
+            if( !telefono2.isEmpty() && (!telefono2.equals(cnt.getTel().getDati().get(1)))  ){
+                if(cnt.getTel().contiene(telefono2)){
+                     presente = true;
+                }
+            }
+            
+            if( !telefono3.isEmpty() && (!telefono3.equals(cnt.getTel().getDati().get(2)))  ){
+                if(cnt.getTel().contiene(telefono3)){
+                     presente = true;
+                }
+            }
+            
+            
+            
+            
+            
+
         }
 
         return presente;
     }
+/*
+    private boolean verificaDuplicatiEmail(String email) {
 
-    private boolean verificaDuplicatiEmail(String email1, String email2, String email3) {
+        System.out.println("VERIFICA DEI DUPLICATI EMAIL");
 
         boolean presente = false;
 
         for (Contatto cnt : elenco) {
-            for (String email : cnt.getEmail().getDati()) {
-
-                if (email1 != null && (!email.isEmpty()) && email.equals(email1)) {
-
-                    presente = true;
-
-                }
-
-                if (email2 != null && (!email.isEmpty()) && email.equals(email2)) {
-
-                    presente = true;
-
-                }
-
-                if (email3 != null && (!email.isEmpty()) && email.equals(email3)) {
-
-                    presente = true;
-
-                }
-
+            if ( (!email.isEmpty()) && cnt.getTel().contiene(email)) {
+                presente = true;
             }
 
         }
         return presente;
     }
-
+*/
     /**
      * @brief Metodo che aggiunge un contatto alla lista.
      *
@@ -126,16 +112,36 @@ public class ListaContatti {
      * @return true quando l'aggiunta ha esito positivo, altrimenti false
      */
     public void aggiungiContatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
-        boolean presente = false;
+        
+        
 
-        if (!verificaDuplicatiEmail(email1, email2, email3) && !verificaDuplicatiTelefono(telefono1, telefono2, telefono3)) {
+            
+            
+           if (/*!verificaDuplicatiEmail(email1, email2, email3) && */!verificaDuplicatiTelefono(telefono1, telefono2, telefono3)) {
+            
+            /*c.setNome(nomeNuovo);
+            c.setCognome(cognomeNuovo);
+            
+            c.getEmail().getDati().set(0, emailNuova1);
+            c.getEmail().getDati().set(1, emailNuova2);
+            c.getEmail().getDati().set(2, emailNuova3);
+            
+            c.getTel().getDati().set(0, telNuovo1);
+            c.getTel().getDati().set(1, telNuovo2);
+            c.getTel().getDati().set(2, telNuovo3);*/
+            
             Contatto c = new Contatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
-            elenco.add(c);
+                elenco.add(c);
+           }
+         
+                
+        
+        
 
-        } else {
-            System.out.println("\n DATO PRESENTE");
-            presente = false;
-        }
+          
+        
+        
+        
 
     }
 
@@ -158,9 +164,9 @@ public class ListaContatti {
 
         for (Contatto c : elenco) {
             if ((nome.isEmpty() || c.getNome().toLowerCase().contains(nome.toLowerCase())) && (cognome.isEmpty() || c.getCognome().toLowerCase().contains(cognome.toLowerCase()))) {
-                
+
                 listaFiltrata.aggiungiContatto(c.getNome(), c.getCognome(), c.getTel().getDati().get(0), c.getTel().getDati().get(1), c.getTel().getDati().get(2),
-                                                c.getEmail().getDati().get(0), c.getEmail().getDati().get(1), c.getEmail().getDati().get(2));
+                        c.getEmail().getDati().get(0), c.getEmail().getDati().get(1), c.getEmail().getDati().get(2));
             }
         }
         return listaFiltrata;
@@ -217,29 +223,20 @@ public class ListaContatti {
      *
      * @return true quando il contatto viene modificato, altrimenti false
      */
+    
     public boolean modificaContatto(Contatto c, String nomeNuovo, String cognomeNuovo, String telNuovo1, String telNuovo2, String telNuovo3, String emailNuova1, String emailNuova2, String emailNuova3) {
 
-       if (!verificaDuplicatiEmail(emailNuova1, emailNuova2, emailNuova3) && !verificaDuplicatiTelefono(telNuovo1, telNuovo2, telNuovo3)) {
+        
+           if (/*!verificaDuplicatiEmail(emailNuova1, emailNuova2, emailNuova3) &&*/ !verificaDuplicatiTelefono(telNuovo1, telNuovo2, telNuovo3)) {
             
-            /*c.setNome(nomeNuovo);
-            c.setCognome(cognomeNuovo);
-            
-            c.getEmail().getDati().set(0, emailNuova1);
-            c.getEmail().getDati().set(1, emailNuova2);
-            c.getEmail().getDati().set(2, emailNuova3);
-            
-            c.getTel().getDati().set(0, telNuovo1);
-            c.getTel().getDati().set(1, telNuovo2);
-            c.getTel().getDati().set(2, telNuovo3);*/
             
             rimuoviContatto(c);
             aggiungiContatto(nomeNuovo, cognomeNuovo, telNuovo1, telNuovo2, telNuovo3, emailNuova1, emailNuova2, emailNuova3);
-            
-            
-        }
-       
-       
+           }
+         
         
+        
+       
         return true;
     }
 
