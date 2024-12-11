@@ -1,9 +1,12 @@
 package it.unisa.diem.softeng.progettogruppo20;
 
 import it.unisa.diem.softeng.progettogruppo20.Struttura.Contatto;
+import it.unisa.diem.softeng.progettogruppo20.gestione.GestioneFile;
 import it.unisa.diem.softeng.progettogruppo20.gestione.ListaContatti;
 import java.awt.Button;
 import java.awt.TextField;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Collection;
@@ -20,6 +23,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class PrimaryController implements Initializable {
 
@@ -92,8 +97,8 @@ public class PrimaryController implements Initializable {
     //lista osservabile
     private ListaContatti listaContatti;
     private ObservableList<Contatto> contatti;
-   // private ObservableList<Contatto> listaFiltrata;
-    
+    // private ObservableList<Contatto> listaFiltrata;
+
 
     /* private void switchToSecondary() throws IOException {
         App.setRoot("secondary");
@@ -121,54 +126,53 @@ public class PrimaryController implements Initializable {
         contatti.setAll(listaContatti.getElenco());
     }
 
-    private void controllerBottoneAggiungi(){
+    private void controllerBottoneAggiungi() {
         BooleanBinding cond1 = Bindings.isEmpty(nomeTfd.textProperty());
         BooleanBinding cond2 = Bindings.isEmpty(cognomeTfd.textProperty());
         aggiungiBtn.disableProperty().bind(Bindings.and(cond1, cond2));
     }
-    
+
     @FXML
     private void modContatto(ActionEvent event) {
-        
+
         Contatto selezione = tabellaContatti.getSelectionModel().getSelectedItem();
-        
+
         nomeTfd.textProperty().set(selezione.getNome());
         cognomeTfd.textProperty().set(selezione.getCognome());
-        
+
         telTfd1.textProperty().set(selezione.getTel().getDati().get(0));
         telTfd2.textProperty().set(selezione.getTel().getDati().get(1));
         telTfd3.textProperty().set(selezione.getTel().getDati().get(2));
-        
+
         emailTfd1.textProperty().set(selezione.getEmail().getDati().get(0));
         emailTfd2.textProperty().set(selezione.getEmail().getDati().get(1));
         emailTfd3.textProperty().set(selezione.getEmail().getDati().get(2));
-         
+
     }
-    
-   @FXML
-    private void confermaModifica(){
-        
+
+    @FXML
+    private void confermaModifica() {
+
         Contatto selezione = tabellaContatti.getSelectionModel().getSelectedItem();
-        
+
         listaContatti.modificaContatto(selezione, nomeTfd.getText(), cognomeTfd.getText(), telTfd1.getText(), telTfd2.getText(), telTfd3.getText(), emailTfd1.getText(), emailTfd2.getText(), emailTfd3.getText());
         aggiornamentoTableView();
-        
+
         puliziaCampi();
     }
 
     @FXML
     private void cercaContatto(ActionEvent event) {
-        String nome=nomeTfd.getText();
-        String cognome=cognomeTfd.getText();
+        String nome = nomeTfd.getText();
+        String cognome = cognomeTfd.getText();
         ListaContatti listaCercata = new ListaContatti();
         listaCercata = listaContatti.cercaContatto(nome, cognome);
-        System.out.println("HO CERCATO: " +listaCercata);
-        
-        contatti.setAll(listaCercata.getElenco());
-       // contatti= FXCollections.observableArrayList();
-       // tabellaContatti.setItems(contatti);
-    }
+        System.out.println("HO CERCATO: " + listaCercata);
 
+        contatti.setAll(listaCercata.getElenco());
+        // contatti= FXCollections.observableArrayList();
+        // tabellaContatti.setItems(contatti);
+    }
 
     @FXML
     private void addContact() {
@@ -203,10 +207,64 @@ public class PrimaryController implements Initializable {
     }
 
     @FXML
+
+    void apriFileCSV() throws FileNotFoundException, IOException {
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Apri il file");
+
+        // Mostra il dialogo di selezione file
+        File file = fc.showOpenDialog(null); // Usa null se non hai uno stage principale da passare
+
+        // Controlla se l'utente ha selezionato un file
+        if (file == null) {
+            // Mostra un messaggio all'utente
+            System.out.println("Nessun file selezionato.");
+            return;
+        }
+
+        // Ottieni il percorso completo del file
+        String filePath = file.getAbsolutePath();
+
+        listaContatti.eliminaRubrica();
+        ListaContatti nuovaRubrica;
+        GestioneFile gf = new GestioneFile(filePath);
+        nuovaRubrica=gf.importa();
+        tabellaContatti.getItems().clear();
+        tabellaContatti.setItems((ObservableList<Contatto>) nuovaRubrica.getElenco());
+        aggiornamentoTableView();
+        System.out.println("File importato correttamente.");
+        
+        /*try {
+            // Crea l'oggetto GestioneFile e importa i dati
+            ListaContatti nuovaRubrica;
+            GestioneFile gf = new GestioneFile(filePath);
+            nuovaRubrica=gf.importa();
+            
+            //listaContatti.eliminaRubrica();
+            tabellaContatti.getItems().clear();
+            tabellaContatti.setItems((ObservableList<Contatto>) nuovaRubrica.getElenco());
+            aggiornamentoTableView();
+
+            // Facoltativo: conferma all'utente che l'importazione è stata completata
+            System.out.println("File importato correttamente.");*/
+        /*} catch (FileNotFoundException e) {
+            // Gestisci l'eccezione in modo più user-friendly
+            System.err.println("File non trovato: " + e.getMessage());
+            // Facoltativo: mostra un'alert grafica all'utente
+        } catch (Exception e) {
+            // Gestisci eventuali altre eccezioni
+            System.err.println("Errore durante l'importazione: " + e.getMessage());
+        } */
+        
+    }
+
+    private boolean fileNullo(File file) {
+        return file == null;
+    }
+
+    @FXML
     private void chiusuraProgramma() {
         Platform.exit();
     }
-    
-    
 
 }
