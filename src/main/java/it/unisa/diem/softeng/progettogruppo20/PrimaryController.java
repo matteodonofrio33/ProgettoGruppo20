@@ -221,7 +221,7 @@ public class PrimaryController implements Initializable {
             String nome = file.getName();
             GestioneFile gf = new GestioneFile(nome);
             listaContatti.eliminaRubrica();
-            listaContatti = gf.importa();
+            listaContatti = gf.importa(file);
             tabellaContatti.getItems().clear();
             aggiornamentoTableView();
             

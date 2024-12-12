@@ -72,13 +72,13 @@ public class GestioneFile {
      * @post si otterrà un oggetto di ListaContatti
      * @return ritorna un oggetto di ListaContatti
      */
-    public ListaContatti importa() throws IOException {
+    public ListaContatti importa(File file) throws IOException {
         
         String nomi=this.fileName.split("[.]")[0];
         
         ListaContatti nr=new ListaContatti();
         
-        try(Scanner s=new Scanner(new BufferedReader(new FileReader(this.fileName)))) {
+        try(Scanner s=new Scanner(new BufferedReader(new FileReader(file)))) {
             if(s.nextLine()==null) return nr;
             
             s.useDelimiter("[;\n]");
