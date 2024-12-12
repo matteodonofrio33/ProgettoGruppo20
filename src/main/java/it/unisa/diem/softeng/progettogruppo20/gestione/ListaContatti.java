@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.unisa.diem.softeng.progettogruppo20.gestione;
 
 import it.unisa.diem.softeng.progettogruppo20.Struttura.Contatto;
@@ -13,12 +8,13 @@ import javafx.collections.ObservableList;
 
 /**
  * @file ListaContatti.java
- * @brief Classe che contiene i contatti organizzati in una Collection Set.
+ * @brief Classe che contiene i contatti organizzati in una Collection di tipo
+ * Set.
  *
  * Questa classe contiene una lista di contatti organizzati in una Collection di
  * tipo TreeSet<Contatto> e i metodi necessari a svolgere operazioni su di essa.
  *
- * @author Fabrizio D'Errico
+ * @author Contaldo Luigi, Cocco Luigi, D'Errico Fabrizio, D'Onofrio Matteo.
  * @date December 06, 2024
  * @version 1.0
  */
@@ -57,7 +53,7 @@ public class ListaContatti {
             }
 
             if (!telefono3.isEmpty() && (!telefono3.equals(cnt.getTel().getDati().get(2)))) {
-                
+
                 if (cnt.getTel().contiene(telefono3)) {
                     presente = true;
                 }
@@ -97,23 +93,20 @@ public class ListaContatti {
     /**
      * @brief Metodo che aggiunge un contatto alla lista.
      *
-     * Il metodo verifica che non sia presente già un contatto con le stesse
-     * informazioni, scorre la lista e ,nel caso in cui il riscontro fosse
-     * positivo, viene aggiunto il nuovo contatto.
-     *
-     * @pre Il contatto non deve essere già presente in rubrica
-     * @pre nome o cognome non devono essere nulli.
-     * @post Il contatto viene aggiunto.
+     * See also: Contatto().
+     * @pre nome e cognome non possono essere entrambi vuoti.
+     * @post Il contatto viene aggiunto al TreeSet.
      *
      * @param[in] nome Eventuale nome del contatto che si vuole aggiungere.
      * @param[in] cognome Eventuale cognome del contatto che si vuole
      * aggiungere.
-     * @param[in] telefono Eventuale numero di telefono del contatto che si
-     * vuole aggiungere.
-     * @param[in] email Eventuale indirizzo email del contatto che si vuole
-     * aggiungere.
-     *
-     * @return true quando l'aggiunta ha esito positivo, altrimenti false
+     * @param[in] telefono1 Eventuale numero di telefono del contatto.
+     * @param[in] telefono2 Eventuale numero di telefono del contatto.
+     * @param[in] telefono3 Eventuale numero di telefono del contatto.
+     * @param[in] email1 Eventuale email del contatto.
+     * @param[in] email2 Eventuale email del contatto.
+     * @param[in] email3 Eventuale email del contatto.
+     * @see Contatto()
      */
     public void aggiungiContatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
 
@@ -123,18 +116,15 @@ public class ListaContatti {
     }
 
     /**
-     * @brief Cerca il contatto.
+     * @brief Cerca i contatti contenenti le sottostringhe di cognome o nome.
      *
-     * Data una sottostringa di nome, cognome oppure entrambe, ritorna un array
-     * di contatti.
-     *
-     * @pre Il contatto deve essere presente nella lista.
-     * @post Il contatto viene restituito.
+     * @post lista di contatti che contiene i contatti cercati.
      * @invariant La lista non deve essere modificata.
      *
      * @param[in] nome Nome o sottostringa del contatto da cercare.
      * @param[in] cognome Cognome o sottostringa del contatto da cercare.
-     * @return lista di contatti.
+     * @return Un oggetto di ListaContatti filtrata tramite le sottostringhe di
+     * cognome o nome.
      */
     public ListaContatti cercaContatto(String nome, String cognome) {
         ListaContatti listaFiltrata = new ListaContatti();
@@ -150,52 +140,42 @@ public class ListaContatti {
     }
 
     /**
-     * @brief Rimuove un contatto.
+     * @brief Rimuove un contatto dalla lista.
      *
-     * Il metodo permette di rimuovere un contatto dalla lista tramite remove,
-     * dopo aver verificato che il contatto sia effettivamente presente.
-     *
-     * @pre Il contatto deve essere presente nella lista.
+     * @pre Il contatto dev'essere presente nella lista.
      * @post Il contatto viene rimosso dalla lista.
      *
      * @param[in] c Contatto da rimuovere
-     * @see cercaContatto()
-     *
-     * @return true quando la rimozione ha esito positivo, altrimenti false
      */
     public void rimuoviContatto(Contatto c) {
+
         elenco.remove(c);
     }
 
     /**
      * @brief Modifica un contatto.
      *
-     * Il metodo permette di modificare un contatto: cerca il contatto da
-     * modificare, scorre la lista dei contatti per verificare che i dati non
-     * siano presenti in altri utenti e, nel caso in cui non lo fossero,
-     * modifica il contatto invocando il metodo modifica() nella classe
-     * Contatto.
+     * See also: rimuoviContatto(), aggiungiContatto().
+     * 
+     * Il metodo verifica che i dati da modificare non siano presenti all'interno dello stesso contatto
+     * e nel caso in cui  non siano presenti procede con la modifica.
      *
-     * @pre Il contatto deve essere presente nella lista.
+     * @pre Il contatto è presente nella lista.
      * @post Il contatto viene modificato.
      * @invariant La dimensione della lista resta invariata.
      *
-     * @param[in] nomeVecchio Nome che serve a cercare il contatto nella lista.
-     * @param[in] nomeNuovo Nome che viene eventualmente sostituito al
-     * precedente.
-     * @param[in] cognomeVecchio Cognome che serve a cercare il contatto nella
-     * lista.
-     * @param[in] cognomeNuovo Cognome del contatto che viene eventualmente
-     * sostituito al precedente.
-     * @param[in] emailVecchia Indirizzo email precedente.
-     * @param[in] emailNuova Indirizzo email nuovo che viene eventualmente
-     * sostituito al precedente.
-     * @param[in] telefonoVecchio Numero di telefono precedente.
-     * @param[in] telefonoNuovo Numero di telefono nuovo eventualmente
-     * sostituito al precedente.
+     * @param[in] c E' il contatto che dev'essere modificato.
+     * @param[in] nomeNuovo Nome del contatto che sostituisce il vecchio.
+     * @param[in] cognomeNuovo Cognome del contatto che sostituisce il vecchio.
+     * @param[in] telNuovo1 Telefono che sostituisce il precedente.
+     * @param[in] telNuovo2 Telefono che sostituisce il precedente.
+     * @param[in] telNuovo3 Telefono che sostituisce il precedente.
+     * @param[in] emailNuova1 Email che sostituisce la precedente.
+     * @param[in] emailNuova2 Email che sostituisce la precedente.
+     * @param[in] emailNuova3 Email che sostituisce la precedente.
      *
-     * @see cercaContatto()
-     * @see modifica()
+     * @see rimuoviContatto()
+     * @see aggiungiContatto()
      *
      *
      * @return true quando il contatto viene modificato, altrimenti false
@@ -214,9 +194,8 @@ public class ListaContatti {
     public Set<Contatto> getElenco() {
         return elenco;
     }
-    
+
     public void eliminaRubrica() {
         elenco.clear();
     }
 }
-

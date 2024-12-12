@@ -1,11 +1,8 @@
 /**
  * @file Contatto.java
- * @brief si occupa della creazione e gestione di un oggetto di Contatto
+ * @brief Si occupa della creazione e gestione di un oggetto di Contatto
  *
- * per l'implementazione dell'ordinamento è stato utilizzato un compareTo(..)
- * implementando l'interfaccia Comparable
- *
- * @author Luigi Cocco
+ * @author Contaldo Luigi, Cocco Luigi, D'Errico Fabrizio, D'Onofrio Matteo.
  * @date December 6, 2024
  * @version 1.0
  */
@@ -19,23 +16,25 @@ public class Contatto implements Comparable<Contatto> {
     private Email email;
 
     /**
-     * @brief Crea un oggetto di tipo Contatto
+     * @brief Crea un oggetto di tipo Contatto.
      *
-     * See also: Telefono(), Email(), aggiungiDato()
+     * See also: Telefono(), Email(), aggiungiDato().
      *
-     * Per email e telefono chiama aggiungiDato(..)
-     *
-     * @pre 'nome!=null || cognome!=null' non possono essere entrambi null
-     * @post L'oggetto contatto è stato creato
-     *
-     *
-     * @param[in] nome è il nome del Contatto
-     * @param[in] cognome è il cognome del Contatto
-     * @param[in] telefono è il numero del Contatto
-     * @param[in] email è l'email del Contatto
-     * @see Telefono()
-     * @see Email()
-     * @see aggiungiDato()
+     * @pre nome e cognome non possono essere entrambi vuoti.
+     * @post L'oggetto di Contatto è stato creato.
+     * 
+     * @param[in] nome Nome del Contatto.
+     * @param[in] cognome Cognome del Contatto.
+     * @param[in] telefono1 Eventuale numero di telefono del contatto.
+     * @param[in] telefono2 Eventuale numero di telefono del contatto.
+     * @param[in] telefono3 Eventuale numero di telefono del contatto.
+     * @param[in] email1 Eventuale email del contatto.
+     * @param[in] email2 Eventuale email del contatto.
+     * @param[in] email3 Eventuale email del contatto.
+     * @see Telefono().
+     * @see Email().
+     * @see aggiungiDato().
+     * 
      */
     public Contatto(String nome, String cognome, String telefono1, String telefono2, String telefono3, String email1, String email2, String email3) {
         this.nome = nome;
@@ -51,51 +50,34 @@ public class Contatto implements Comparable<Contatto> {
         this.email.aggiungiDato(email3);
     }
 
-    /**
-     * @brief modifica il contatto attuale con i parametri nuovi
-     *
-     * See also: modificaDato()
-     *
-     * Se il parametroNuovo è non nullo allora sovrascrive il parametroVecchio
-     * Se devono essere modificate l'emailVecchia oppure il telefonoVecchio
-     * allora viene invocato modificaDato(..)
-     *
-     * @pre ' nomeNuovo!=null || cognomeNuovo!=null || emailNuova!=null ||
-     * telefonoNuovo!=null '
-     * @post il contatto è stato modificato
-     * @invariant i dati del contatto ai quali sono associati (parametroNuovo ==
-     * null) non devono essere modificati
-     *
-     * @param[in] nomeNuovo sovrascrive il nome dell'istanza corrente
-     * @param[in] cognomeNuovo sovrascrive il cognome dell'istanza corrente
-     * @param[in] emailVecchia è l'email che si vuole sovrascrivere
-     * @param[in] emailNuova è l'email che sovrascrive emailVecchia
-     * @param[in] telefonoVecchio è il numero di telefono che si vuole
-     * sovrascrivere
-     * @param[in] telefonoNuovo è il numero di telefono che sovrascrive
-     * telefonoVecchio
-     * @see modificaDato()
-     * @return se la modifica è avvenuta con successo ritorna true, altrimenti
-     * false
-     *
-    protected boolean modifica(String nomeNuovo, String cognomeNuovo, String emailVecchia, String emailNuova, String telefonoVecchio, String telefonoNuovo) {
-
-        return true;
-    }
-*/
     
+    /**
+     * @brief Stabilisce il criterio di ordinamento del TreeSet prima per il cognome e poi per il nome. 
+     * 
+     * Passato il contatto in input, il metodo tratta tutti i caratteri maiuscoli e minuscolo allo stesso modo.
+     * 
+     * @param [in] c Contatto con i dati da comparare. 
+     * @return int. 
+     */
     
     @Override
     public int compareTo(Contatto c) {
 
         if (!this.cognome.toLowerCase().equals(c.cognome.toLowerCase())) {
-            return this.cognome.toLowerCase().compareTo(c.cognome.toLowerCase());
+            return this.cognome.toLowerCase().compareTo(c.cognome.toLowerCase()); 
         } else {
             return this.nome.toLowerCase().compareTo(c.nome.toLowerCase());
         }
 
     }
 
+    
+    /**
+     * @brief Stabilisce che due contatti sono uguali se hanno stesso nome e cognome.
+     * 
+     * @param[in] o.  
+     * @return boolean.  
+     */
     @Override
     public boolean equals(Object o) {
         if (o == null) {

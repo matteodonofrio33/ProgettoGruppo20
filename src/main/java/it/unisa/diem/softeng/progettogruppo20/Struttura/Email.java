@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package it.unisa.diem.softeng.progettogruppo20.Struttura;
 
 import static java.lang.Character.isLetter;
@@ -10,9 +6,9 @@ import java.util.List;
 
 /**
  * @file Email.java
- * @brief Classe che estende la classe Dato e ne riscrive i metodi.
+ * @brief Contiene una lista(String) di tre email.
  *
- * @author Matteo D'Onofrio
+ * @author Contaldo Luigi, Cocco Luigi, D'Errico Fabrizio, D'Onofrio Matteo. 
  * @date December 06, 2024
  * @version 1.0
  */
