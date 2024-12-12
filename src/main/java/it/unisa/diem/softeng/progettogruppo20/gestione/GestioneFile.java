@@ -1,8 +1,8 @@
 /**
  * @file GestioneFile.java
- * @brief si occupa di salvare ed importare la lista dei contatti
+ * @brief Si occupa di esportare ed importare la lista dei contatti.
  *
- * @author Luigi Cocco
+ * @author Contaldo Luigi, Cocco Luigi, D'Errico Fabrizio, D'Onofrio Matteo.
  * @date December 6, 2024
  * @version 1.0
  */
@@ -31,12 +31,12 @@ public class GestioneFile {
     }
 
     /**
-     * @brief salva la lista dei contatti in un file
-     * @pre listaContatti non dev'essere vuota
-     * @post viene creato il file(con nome filename) contente la listaContatti
-     * @invariant la lista non viene modificata
+     * @brief Salva la lista dei contatti in un file di tipo .csv.
+     * @pre listaContatti Non deve essere vuota.
+     * @post Viene creato il file contente la listaContatti.
+     * @invariant la lista non viene modificata.
      *
-     * @param[in] listaContatti è la lista che dev'essere salvata nel file
+     * @param[in] listaContatti Lista in cui deve essere salvato il file.
      */
     public void esporta(ListaContatti listaContatti) throws IOException {
 
@@ -67,10 +67,10 @@ public class GestioneFile {
     }
 
     /**
-     * @brief importa dal file denominato filename la listaContatti
-     * @pre il file denominato filename non dev'essere vuoto
-     * @post si otterrà un oggetto di ListaContatti
-     * @return ritorna un oggetto di ListaContatti
+     * @brief Importa da file di tipo .csv la listaContatti.
+     * @pre Il file non deve essere vuoto.
+     * @post Trascrive i contatti presenti nel file di tipo .csv in un oggetto di listaContatti.
+     * @return Ritorna un oggetto di ListaContatti.
      */
     public ListaContatti importa() throws IOException {
         
