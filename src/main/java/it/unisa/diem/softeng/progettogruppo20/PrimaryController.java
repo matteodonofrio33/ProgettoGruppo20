@@ -220,6 +220,7 @@ public class PrimaryController implements Initializable {
             listaContatti = gf.importa();
             tabellaContatti.getItems().clear();
             aggiornamentoTableView();
+            
         }
 
     }

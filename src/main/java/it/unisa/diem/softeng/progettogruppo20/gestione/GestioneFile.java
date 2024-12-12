@@ -97,6 +97,8 @@ public class GestioneFile {
             }
         }
         
+        System.out.println("\n NOMEFILE: " + fileName);
+        
         return nr;
         
     }
