@@ -18,87 +18,69 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Contaldo Luigi, Cocco Luigi, D'Errico Fabrizio, D'Onofrio Matteo
  */
 public class DatoTest {
-
-    private Dato d;
-
-    /**
-     * Classe concreta per testare la classe astratta Dato.
-     */
-    private static class DatoConcreto extends Dato {
-        // Classe vuota per implementare Dato senza aggiungere funzionalità.
+    
+    public DatoTest() {
     }
-
-    /**
-     * Test del costruttore.
-     */
-    @Test
-    public void testDato() {
-        //List<String> dati = new 
-        //assertNotNull(dati, "La lista non dovrebbe essere null dopo l'inizializzazione");
-        //assertTrue(dati.isEmpty(), "La lista dovrebbe essere vuota dopo l'inizializzazione");
-
-    }
-
+    
     @BeforeAll
     public static void setUpClass() {
     }
-
+    
     @AfterAll
     public static void tearDownClass() {
     }
-
+    
     @BeforeEach
     public void setUp() {
-        d = new DatoConcreto();
     }
-
+    
     @AfterEach
     public void tearDown() {
     }
 
     /**
-     * Test del metodo contiene().
+     * Test of contiene method, of class Dato.
      */
     @Test
     public void testContiene() {
-        d.aggiungiDato("dato_test1");
-        d.aggiungiDato("dato_test2");
-        d.aggiungiDato("dato_test3");
-
-        assertTrue(d.contiene("dato_test1"));
-        assertTrue(d.contiene("dato_test2"));
-        assertTrue(d.contiene("dato_test3"));
+        System.out.println("contiene");
+        String dato = "";
+        Dato instance = new DatoImpl();
+        boolean expResult = false;
+        boolean result = instance.contiene(dato);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
-     * Test del metodo aggiungiDato().
+     * Test of aggiungiDato method, of class Dato.
      */
     @Test
     public void testAggiungiDato() {
-        d.aggiungiDato("dato1");
-        d.aggiungiDato("dato2");
-        d.aggiungiDato("dato3");
-
-        List<String> dati = d.getDati();
-
-        assertEquals(3, dati.size(), "La lista contiene 3 dati");
-        assertTrue(dati.contains("dato1"), "La lista contiene la stringa dato1");
-        assertTrue(dati.contains("dato2"), "La lista contiene la stringa dato2");
-        assertTrue(dati.contains("dato3"), "La lista contiene la stringa dato3");
+        System.out.println("aggiungiDato");
+        String dato = "";
+        Dato instance = new DatoImpl();
+        instance.aggiungiDato(dato);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
-     * Test del metodo getDati().
+     * Test of getDati method, of class Dato.
      */
     @Test
     public void testGetDati() {
-        d.aggiungiDato("elem1");
-        d.aggiungiDato("elem2");
-
-        List<String> dati = d.getDati();
-        assertEquals(2, dati.size(), "La lista dovrebbe contenere 2 elementi");
-        assertEquals("elem1", dati.get(0), "Il primo elemento dovrebbe essere 'elem1'");
-        assertEquals("elem2", dati.get(1), "Il secondo elemento dovrebbe essere 'elem2'");
+        System.out.println("getDati");
+        Dato instance = new DatoImpl();
+        List<String> expResult = null;
+        List<String> result = instance.getDati();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
+    public class DatoImpl extends Dato {
+    }
+    
 }

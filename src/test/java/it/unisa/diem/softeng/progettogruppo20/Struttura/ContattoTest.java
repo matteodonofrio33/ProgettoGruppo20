@@ -18,7 +18,33 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class ContattoTest {
     
-    public ContattoTest() {
+    @Test
+    public void testContatto() {
+        
+        String nome = "Mario";
+        String cognome = "Bianchi";
+        
+        String tel1 = "123";
+        String tel2 = "456";
+        String tel3 = "789";
+        
+        String email1 = "email1@gmail.com";
+        String email2 = "email2@gmail.com";
+        String email3 = "email3@gmail.com";
+        
+        Contatto c = new Contatto(nome, cognome, tel1, tel2, tel3, email1, email2, email3);
+        
+        assertEquals(nome,c.getNome());
+        assertEquals(cognome,c.getCognome());
+        
+        assertEquals(tel1,c.getTel().getDati().get(0));
+        assertEquals(tel2,c.getTel().getDati().get(1));
+        assertEquals(tel3,c.getTel().getDati().get(2));
+        
+        assertEquals(email1,c.getEmail().getDati().get(0));
+        assertEquals(email2,c.getEmail().getDati().get(1));
+        assertEquals(email3,c.getEmail().getDati().get(2));
+         
     }
     
     @BeforeAll
@@ -70,7 +96,7 @@ public class ContattoTest {
     /**
      * Test of getNome method, of class Contatto.
      */
-    @Test
+   @Test
     public void testGetNome() {
         System.out.println("getNome");
         Contatto instance = null;
@@ -112,7 +138,7 @@ public class ContattoTest {
     /**
      * Test of getEmail method, of class Contatto.
      */
-    @Test
+   @Test
     public void testGetEmail() {
         System.out.println("getEmail");
         Contatto instance = null;
@@ -126,7 +152,7 @@ public class ContattoTest {
     /**
      * Test of setNome method, of class Contatto.
      */
-    @Test
+   @Test
     public void testSetNome() {
         System.out.println("setNome");
         String nome = "";
@@ -139,7 +165,7 @@ public class ContattoTest {
     /**
      * Test of setCognome method, of class Contatto.
      */
-    @Test
+   @Test
     public void testSetCognome() {
         System.out.println("setCognome");
         String cognome = "";
