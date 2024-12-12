@@ -59,6 +59,9 @@ public class PrimaryController implements Initializable {
 
     @FXML
     private javafx.scene.control.Button modificaBtn;
+    
+    @FXML
+    private javafx.scene.control.Button confermaBtn;
 
     //dichiarazione tabella:
     @FXML
@@ -114,17 +117,17 @@ public class PrimaryController implements Initializable {
         email3Clm.setCellValueFactory(s -> new SimpleStringProperty(s.getValue().getEmail().getDati().get(2)));
 
         tabellaContatti.setItems(contatti);
-        controllerBottoneAggiungi();
+        controllerBottoneAggiungi(aggiungiBtn);
     }
 
     private void aggiornamentoTableView() {
         contatti.setAll(listaContatti.getElenco());
     }
 
-    private void controllerBottoneAggiungi(){
+    private void controllerBottoneAggiungi(javafx.scene.control.Button bottone){
         BooleanBinding cond1 = Bindings.isEmpty(nomeTfd.textProperty());
         BooleanBinding cond2 = Bindings.isEmpty(cognomeTfd.textProperty());
-        aggiungiBtn.disableProperty().bind(Bindings.and(cond1, cond2));
+        bottone.disableProperty().bind(Bindings.and(cond1, cond2));
     }
     
     @FXML
@@ -142,7 +145,8 @@ public class PrimaryController implements Initializable {
         emailTfd1.textProperty().set(selezione.getEmail().getDati().get(0));
         emailTfd2.textProperty().set(selezione.getEmail().getDati().get(1));
         emailTfd3.textProperty().set(selezione.getEmail().getDati().get(2));
-         
+        
+        controllerBottoneAggiungi(confermaBtn);
     }
     
    @FXML
