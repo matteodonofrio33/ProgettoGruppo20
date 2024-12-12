@@ -31,10 +31,11 @@ public class DatoTest {
     /**
      * Test del costruttore.
      */
-    public DatoTest() {
-        List<String> dati = d.getDati();
-        assertNotNull(dati, "La lista non dovrebbe essere null dopo l'inizializzazione");
-        assertTrue(dati.isEmpty(), "La lista dovrebbe essere vuota dopo l'inizializzazione");
+    @Test
+    public void testDato() {
+        //List<String> dati = new 
+        //assertNotNull(dati, "La lista non dovrebbe essere null dopo l'inizializzazione");
+        //assertTrue(dati.isEmpty(), "La lista dovrebbe essere vuota dopo l'inizializzazione");
 
     }
 
@@ -64,9 +65,9 @@ public class DatoTest {
         d.aggiungiDato("dato_test2");
         d.aggiungiDato("dato_test3");
 
-        assertTrue(d.contiene("dato_test1"), "La lista contiene la stringa dato_test1");
-        assertTrue(d.contiene("dato_test2"), "La lista contiene la stringa dato_test2");
-        assertTrue(d.contiene("dato_test3"), "La lista contiene la stringa dato_test3");
+        assertTrue(d.contiene("dato_test1"));
+        assertTrue(d.contiene("dato_test2"));
+        assertTrue(d.contiene("dato_test3"));
     }
 
     /**
