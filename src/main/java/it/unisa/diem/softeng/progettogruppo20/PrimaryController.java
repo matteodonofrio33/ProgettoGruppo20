@@ -216,8 +216,8 @@ public class PrimaryController implements Initializable {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("File CSV", "*.csv"));
         fileChooser.setTitle("Apri File CSV");
         File file = fileChooser.showOpenDialog(new Stage());
-        if (file.exists()) {
-            System.out.println("Il file esiste\n");
+        if (file.exists() && file.length()!=0) {
+            System.out.println("Il file esiste e non è vuoto\n");
             String nome = file.getName();
             GestioneFile gf = new GestioneFile(nome);
             listaContatti.eliminaRubrica();

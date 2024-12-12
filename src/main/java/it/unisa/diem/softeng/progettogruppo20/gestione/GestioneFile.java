@@ -40,30 +40,34 @@ public class GestioneFile {
      */
     public void esporta(ListaContatti listaContatti) throws IOException {
 
-        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(this.fileName)))) {
-            // Scrive l'intestazione del CSV
-            pw.println("NOME;COGNOME;TELEFONO1;TELEFONO2;TELEFONO3;EMAIL1;EMAIL2;EMAIL3");
+        if (!listaContatti.getElenco().isEmpty()) {
+            try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(this.fileName)))) {
+                // Scrive l'intestazione del CSV
+                pw.println("NOME;COGNOME;TELEFONO1;TELEFONO2;TELEFONO3;EMAIL1;EMAIL2;EMAIL3");
 
-            for (Contatto c : listaContatti.getElenco()) {
-                pw.print(c.getNome());
-                pw.append(';');
-                pw.print(c.getCognome());
-                pw.append(';');
-                pw.print(c.getTel().getDati().get(0));
-                pw.append(';');
-                pw.print(c.getTel().getDati().get(1));
-                pw.append(';');
-                pw.print(c.getTel().getDati().get(2));
-                pw.append(';');
-                pw.print(c.getEmail().getDati().get(0));
-                pw.append(';');
-                pw.print(c.getEmail().getDati().get(1));
-                pw.append(';');
-                pw.print(c.getEmail().getDati().get(2));
-                pw.append('\n');
+                for (Contatto c : listaContatti.getElenco()) {
+                    pw.print(c.getNome());
+                    pw.append(';');
+                    pw.print(c.getCognome());
+                    pw.append(';');
+                    pw.print(c.getTel().getDati().get(0));
+                    pw.append(';');
+                    pw.print(c.getTel().getDati().get(1));
+                    pw.append(';');
+                    pw.print(c.getTel().getDati().get(2));
+                    pw.append(';');
+                    pw.print(c.getEmail().getDati().get(0));
+                    pw.append(';');
+                    pw.print(c.getEmail().getDati().get(1));
+                    pw.append(';');
+                    pw.print(c.getEmail().getDati().get(2));
+                    pw.append('\n');
+                }
+                System.out.println("ESPORTAZIONE RIUSCITA IN GESTIONE FILE");
             }
+        } else {
+            System.out.println("LISTA VUOTA");
         }
-        System.out.println("ESPORTAZIONE RIUSCITA IN GESTIONE FILE");
     }
 
     /**
@@ -73,14 +77,15 @@ public class GestioneFile {
      * @return ritorna un oggetto di ListaContatti
      */
     public ListaContatti importa(File file) throws IOException {
-        
-        String nomi=this.fileName.split("[.]")[0];
-        
-        ListaContatti nr=new ListaContatti();
-        
-        try(Scanner s=new Scanner(new BufferedReader(new FileReader(file)))) {
-            if(s.nextLine()==null) return nr;
-            
+
+        String nomi = this.fileName.split("[.]")[0];
+        ListaContatti nr = new ListaContatti();
+
+        try (Scanner s = new Scanner(new BufferedReader(new FileReader(file)))) {
+            if (s.nextLine() == null) {
+                return nr;
+            }
+
             s.useDelimiter("[;\n]");
             s.useLocale(Locale.US);
 
@@ -96,11 +101,11 @@ public class GestioneFile {
                 nr.aggiungiContatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
             }
         }
-        
+
         System.out.println("\n NOMEFILE: " + fileName);
-        
+
         return nr;
-        
+
     }
 
 }
