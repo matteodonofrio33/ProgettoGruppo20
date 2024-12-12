@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['modifica_0',['modifica',['../classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1_struttura_1_1_contatto.html#abf8b678d7643340e0e589919cf7824e9',1,'it::unisa::diem::softeng::progettogruppo20::Struttura::Contatto']]],
-  ['modificacontatto_1',['modificaContatto',['../classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1gestione_1_1_lista_contatti.html#ab8c87e27bd889edd6cc89323f46b0008',1,'it::unisa::diem::softeng::progettogruppo20::gestione::ListaContatti']]],
-  ['modificadato_2',['modificaDato',['../classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1_struttura_1_1_dato.html#a5582e9b0f7a9bf8ef88db25fe12ffe29',1,'it.unisa.diem.softeng.progettogruppo20.Struttura.Dato.modificaDato()'],['../classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1_struttura_1_1_email.html#a54c347a011ad5e6f332730d1d458d9b5',1,'it.unisa.diem.softeng.progettogruppo20.Struttura.Email.modificaDato()'],['../classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1_struttura_1_1_telefono.html#a429e003d40a3f4bb96507548d4c5cefe',1,'it.unisa.diem.softeng.progettogruppo20.Struttura.Telefono.modificaDato()']]],
-  ['mostraelenco_3',['mostraElenco',['../classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1interfaccia_1_1_gui.html#ac3867f38c44c1965e8c10ce5c7f5dbb6',1,'it::unisa::diem::softeng::progettogruppo20::interfaccia::Gui']]],
-  ['mostraoperazioni_4',['mostraOperazioni',['../classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1interfaccia_1_1_gui.html#aa1fefa95df9e7f8cd83052508701bf86',1,'it::unisa::diem::softeng::progettogruppo20::interfaccia::Gui']]]
+  ['rimuovicontatto_0',['rimuoviContatto',['../classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1gestione_1_1_lista_contatti.html#a69c5b5f3178451da1dddc392d16b5ef6',1,'it::unisa::diem::softeng::progettogruppo20::gestione::ListaContatti']]]
 ];

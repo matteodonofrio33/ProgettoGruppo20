@@ -97,12 +97,12 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0b95faa21f8ee5add620440317c2761e" id="r_a0b95faa21f8ee5add620440317c2761e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b95faa21f8ee5add620440317c2761e">esporta</a> (<a class="el" href="classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1gestione_1_1_lista_contatti.html">ListaContatti</a> listaContatti)</td></tr>
-<tr class="memdesc:a0b95faa21f8ee5add620440317c2761e"><td class="mdescLeft">&#160;</td><td class="mdescRight">salva la lista dei contatti in un file  <br /></td></tr>
+<tr class="memitem:a0b95faa21f8ee5add620440317c2761e" id="r_a0b95faa21f8ee5add620440317c2761e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b95faa21f8ee5add620440317c2761e">esporta</a> (<a class="el" href="classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1gestione_1_1_lista_contatti.html">ListaContatti</a> listaContatti)  throws IOException </td></tr>
+<tr class="memdesc:a0b95faa21f8ee5add620440317c2761e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva la lista dei contatti in un file di tipo .csv.  <br /></td></tr>
 <tr class="separator:a0b95faa21f8ee5add620440317c2761e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab36e9c425e989a07945091a4a64f97a6" id="r_ab36e9c425e989a07945091a4a64f97a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1gestione_1_1_lista_contatti.html">ListaContatti</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab36e9c425e989a07945091a4a64f97a6">importa</a> ()</td></tr>
-<tr class="memdesc:ab36e9c425e989a07945091a4a64f97a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">importa dal file denominato filename la listaContatti  <br /></td></tr>
-<tr class="separator:ab36e9c425e989a07945091a4a64f97a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb9e89de6958a55089535df3d29a5b36" id="r_afb9e89de6958a55089535df3d29a5b36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1gestione_1_1_lista_contatti.html">ListaContatti</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb9e89de6958a55089535df3d29a5b36">importa</a> (File file)  throws IOException </td></tr>
+<tr class="memdesc:afb9e89de6958a55089535df3d29a5b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Importa da file di tipo .csv la listaContatti.  <br /></td></tr>
+<tr class="separator:afb9e89de6958a55089535df3d29a5b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0b95faa21f8ee5add620440317c2761e" name="a0b95faa21f8ee5add620440317c2761e"></a>
@@ -115,26 +115,26 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void it.unisa.diem.softeng.progettogruppo20.gestione.GestioneFile.esporta </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1gestione_1_1_lista_contatti.html">ListaContatti</a></td>          <td class="paramname"><span class="paramname"><em>listaContatti</em></span></td><td>)</td>
-          <td></td>
+          <td> throws IOException</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>salva la lista dei contatti in un file </p>
-<dl class="section pre"><dt>Precondition</dt><dd>listaContatti non dev'essere vuota </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>viene creato il file(con nome filename) contente la listaContatti </dd></dl>
-<dl class="section invariant"><dt>Invariant</dt><dd>la lista non viene modificata</dd></dl>
+<p>Salva la lista dei contatti in un file di tipo .csv. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>listaContatti Non deve essere vuota. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Viene creato il file contente la listaContatti. </dd></dl>
+<dl class="section invariant"><dt>Invariant</dt><dd>la lista non viene modificata.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">listaContatti</td><td>è la lista che dev'essere salvata nel file </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">listaContatti</td><td>Lista in cui deve essere salvato il file. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="ab36e9c425e989a07945091a4a64f97a6" name="ab36e9c425e989a07945091a4a64f97a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab36e9c425e989a07945091a4a64f97a6">&#9670;&#160;</a></span>importa()</h2>
+<a id="afb9e89de6958a55089535df3d29a5b36" name="afb9e89de6958a55089535df3d29a5b36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb9e89de6958a55089535df3d29a5b36">&#9670;&#160;</a></span>importa()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,16 +142,16 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1gestione_1_1_lista_contatti.html">ListaContatti</a> it.unisa.diem.softeng.progettogruppo20.gestione.GestioneFile.importa </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="paramtype">File</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td> throws IOException</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>importa dal file denominato filename la listaContatti </p>
-<dl class="section pre"><dt>Precondition</dt><dd>il file denominato filename non dev'essere vuoto </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>si otterrà un oggetto di <a class="el" href="classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1gestione_1_1_lista_contatti.html">ListaContatti</a> </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>ritorna un oggetto di <a class="el" href="classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1gestione_1_1_lista_contatti.html">ListaContatti</a> </dd></dl>
+<p>Importa da file di tipo .csv la listaContatti. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>Il file non deve essere vuoto. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Trascrive i contatti presenti nel file di tipo .csv in un oggetto di listaContatti. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Ritorna un oggetto di <a class="el" href="classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1gestione_1_1_lista_contatti.html">ListaContatti</a>. </dd></dl>
 
 </div>
 </div>
