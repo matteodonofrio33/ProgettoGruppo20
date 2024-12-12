@@ -17,22 +17,22 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author fabri
  */
 public class ContattoTest {
-    
+
     public ContattoTest() {
     }
-    
+
     @BeforeAll
     public static void setUpClass() {
     }
-    
+
     @AfterAll
     public static void tearDownClass() {
     }
-    
+
     @BeforeEach
     public void setUp() {
     }
-    
+
     @AfterEach
     public void tearDown() {
     }
@@ -121,6 +121,9 @@ public class ContattoTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
+        
+        Email e = new Email();
+        e.aggiungiDato(dato);
     }
 
     /**
@@ -128,12 +131,10 @@ public class ContattoTest {
      */
     @Test
     public void testSetNome() {
-        System.out.println("setNome");
-        String nome = "";
-        Contatto instance = null;
-        instance.setNome(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String nome = "Christian";
+        Contatto contatto = new Contatto("", "", "", "", "", "", "", "");
+        contatto.setNome(nome);
+        assertEquals(nome, contatto.getNome());
     }
 
     /**
@@ -141,12 +142,12 @@ public class ContattoTest {
      */
     @Test
     public void testSetCognome() {
-        System.out.println("setCognome");
-        String cognome = "";
-        Contatto instance = null;
-        instance.setCognome(cognome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+        String cognome = "Bale";
+        Contatto contatto = new Contatto("", "", "", "", "", "", "", "");
+        contatto.setCognome(cognome);
+        assertEquals(cognome, contatto.getCognome());
+        
     }
-    
+
 }
