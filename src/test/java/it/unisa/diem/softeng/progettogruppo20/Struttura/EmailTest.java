@@ -8,20 +8,26 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class EmailTest {
-    
+
     @BeforeEach
     public void setUp() {
     }
-    
+
+ 
+
+    /**
+     * Test of aggiungiDato method, of class Email.
+     */
     @Test
-    public void testContiene() {
-        Email e=new Email();
-        e.aggiungiDato("dato1");
-        e.aggiungiDato("dato2");
-        e.aggiungiDato("dato3");
-        
-        assertTrue(e.contiene("dato1"));
-        assertTrue(e.contiene("dato2"));
-        assertTrue(e.contiene("dato3"));
+    public void testAggiungiDato() {
+        Email e = new Email();
+        e.aggiungiDato("tonystark@gmail.com");
+        e.aggiungiDato("christialbale@gmail.com");
+        e.aggiungiDato("capitanamerica.com");
+
+        assertEquals(true, e.contiene("tonystark@gmail.com"));
+        assertEquals(true, e.contiene("christialbale@gmail.com"));
+        assertEquals(false, e.contiene("capitanamerica.com")); 
+
     }
 }
