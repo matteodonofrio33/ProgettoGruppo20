@@ -224,10 +224,6 @@ public class PrimaryController implements Initializable {
         return file == null;
     }
 
-    @FXML
-    private void chiusuraProgramma() {
-        Platform.exit();
-    }
 
     @FXML
     private void salvaFileCSV() throws IOException {
