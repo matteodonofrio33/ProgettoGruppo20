@@ -18,27 +18,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Contaldo Luigi, Cocco Luigi, D'Errico Fabrizio, D'Onofrio Matteo
  */
 public class GestioneFileTest {
-    
-    public GestioneFileTest() {
-    }
-    
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
-    
-    @AfterEach
-    public void tearDown() {
-    }
-
-
 
     /**
      * Test of importa method, of class GestioneFile.
@@ -57,6 +36,8 @@ public class GestioneFileTest {
         gf.esporta(lista);
         
         assertTrue(lista.equals(gf.importa(file)));
+        
+        file.delete();
     }
     
 }

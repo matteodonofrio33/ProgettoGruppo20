@@ -9,12 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EmailTest {
 
-    @BeforeEach
-    public void setUp() {
-    }
-
- 
-
     /**
      * Test of aggiungiDato method, of class Email.
      */

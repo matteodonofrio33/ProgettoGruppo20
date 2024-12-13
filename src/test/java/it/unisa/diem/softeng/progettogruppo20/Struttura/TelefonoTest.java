@@ -18,11 +18,6 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class TelefonoTest {
 
-    public TelefonoTest() {
-    }
-
-
-
     /**
      * Test of aggiungiDato method, of class Telefono.
      */

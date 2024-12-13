@@ -86,7 +86,7 @@ public class PrimaryController implements Initializable {
     private TableColumn<Contatto, String> tel2Clm;
 
     @FXML
-    private TableColumn<Contatto, String> tel3Clm; //columnEmail1
+    private TableColumn<Contatto, String> tel3Clm; 
 
     @FXML
     private TableColumn<Contatto, String> email1Clm;
@@ -100,12 +100,8 @@ public class PrimaryController implements Initializable {
     //lista osservabile
     private ListaContatti listaContatti;
     private ObservableList<Contatto> contatti;
-    // private ObservableList<Contatto> listaFiltrata;
-
-
-    /* private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
-    }*/
+   
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -171,11 +167,8 @@ public class PrimaryController implements Initializable {
         String cognome = cognomeTfd.getText();
         ListaContatti listaCercata = new ListaContatti();
         listaCercata = listaContatti.cercaContatto(nome, cognome);
-        System.out.println("HO CERCATO: " + listaCercata);
 
         contatti.setAll(listaCercata.getElenco());
-        // contatti= FXCollections.observableArrayList();
-        // tabellaContatti.setItems(contatti);
     }
 
     @FXML
@@ -217,7 +210,6 @@ public class PrimaryController implements Initializable {
         fileChooser.setTitle("Apri File CSV");
         File file = fileChooser.showOpenDialog(new Stage());
         if (file.exists() && file.length()!=0) {
-            System.out.println("Il file esiste e non è vuoto\n");
             String nome = file.getName();
             GestioneFile gf = new GestioneFile(nome);
             listaContatti = gf.importa(file);

@@ -63,7 +63,6 @@ public class GestioneFile {
                     pw.print(c.getEmail().getDati().get(2));
                     pw.append('\n');
                 }
-                System.out.println("ESPORTAZIONE RIUSCITA IN GESTIONE FILE");
             }
         } else {
             System.out.println("LISTA VUOTA");
@@ -101,8 +100,6 @@ public class GestioneFile {
                 nr.aggiungiContatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
             }
         }
-
-        System.out.println("\n NOMEFILE: " + fileName);
 
         return nr;
 
