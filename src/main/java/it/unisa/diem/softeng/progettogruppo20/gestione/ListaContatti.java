@@ -33,8 +33,6 @@ public class ListaContatti {
         this.elenco = new TreeSet<Contatto>();
     }
 
-
-
     /**
      * @brief Metodo che aggiunge un contatto alla lista.
      *
@@ -128,10 +126,8 @@ public class ListaContatti {
      */
     public boolean modificaContatto(Contatto c, String nomeNuovo, String cognomeNuovo, String telNuovo1, String telNuovo2, String telNuovo3, String emailNuova1, String emailNuova2, String emailNuova3) {
 
-        //if (!verificaDuplicatiEmail(emailNuova1, emailNuova2, emailNuova3) && !verificaDuplicatiTelefono(telNuovo1, telNuovo2, telNuovo3)) {
         rimuoviContatto(c);
         aggiungiContatto(nomeNuovo, cognomeNuovo, telNuovo1, telNuovo2, telNuovo3, emailNuova1, emailNuova2, emailNuova3);
-        //}
 
         return true;
     }
