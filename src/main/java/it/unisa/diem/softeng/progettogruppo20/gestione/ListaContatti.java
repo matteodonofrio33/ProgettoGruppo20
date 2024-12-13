@@ -1,6 +1,7 @@
 package it.unisa.diem.softeng.progettogruppo20.gestione;
 
 import it.unisa.diem.softeng.progettogruppo20.Struttura.Contatto;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import javafx.collections.FXCollections;
@@ -195,4 +196,23 @@ public class ListaContatti {
         return elenco;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ListaContatti other = (ListaContatti) obj;
+        if (!Objects.equals(this.elenco, other.elenco)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }

@@ -38,32 +38,25 @@ public class GestioneFileTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of esporta method, of class GestioneFile.
-     */
-    @Test
-    public void testEsporta() throws Exception {
-        System.out.println("esporta");
-        ListaContatti listaContatti = null;
-        GestioneFile instance = null;
-        instance.esporta(listaContatti);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+
 
     /**
      * Test of importa method, of class GestioneFile.
      */
     @Test
     public void testImporta() throws Exception {
-        System.out.println("importa");
-        File file = null;
-        GestioneFile instance = null;
-        ListaContatti expResult = null;
-        ListaContatti result = instance.importa(file);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+        File file = new File("Rubrica");
+        GestioneFile gf = new GestioneFile("Rubrica");
+        
+        ListaContatti lista = new ListaContatti();
+        
+        lista.aggiungiContatto("Mario", "Bianchi", "123", "4", "5", "email1@gmail.com","email2@gmail.com", "email3@gmail.com");
+        lista.aggiungiContatto("Luigi","Rossi","789","2","4","mail1@gmail.com","mail2@gmail.com","mail3@gmail.com");
+        
+        gf.esporta(lista);
+        
+        assertTrue(lista.equals(gf.importa(file)));
     }
     
 }
