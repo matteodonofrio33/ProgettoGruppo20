@@ -220,7 +220,6 @@ public class PrimaryController implements Initializable {
             System.out.println("Il file esiste e non è vuoto\n");
             String nome = file.getName();
             GestioneFile gf = new GestioneFile(nome);
-            listaContatti.eliminaRubrica();
             listaContatti = gf.importa(file);
             tabellaContatti.getItems().clear();
             aggiornamentoTableView();

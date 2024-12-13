@@ -111,30 +111,6 @@ public class ListaContattiTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getElenco method, of class ListaContatti.
-     */
-    @Test
-    public void testGetElenco() {
-        System.out.println("getElenco");
-        ListaContatti instance = new ListaContatti();
-        Set<Contatto> expResult = null;
-        Set<Contatto> result = instance.getElenco();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
-    /**
-     * Test of eliminaRubrica method, of class ListaContatti.
-     */
-    @Test
-    public void testEliminaRubrica() {
-        System.out.println("eliminaRubrica");
-        ListaContatti instance = new ListaContatti();
-        instance.eliminaRubrica();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
 }

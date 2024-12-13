@@ -195,7 +195,4 @@ public class ListaContatti {
         return elenco;
     }
 
-    public void eliminaRubrica() {
-        elenco.clear();
-    }
 }

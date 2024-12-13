@@ -53,12 +53,7 @@ public abstract class Dato {
      * @invariant i dati già presenti nella LinkedList non devono essere
      * modificati.
      */
-    protected void aggiungiDato(String dato) {
-
-        if (dato != "") {
-            dati.add(dato);
-        }
-    }
+    public abstract void aggiungiDato(String dato);
 
     public List<String> getDati() {
         return dati;

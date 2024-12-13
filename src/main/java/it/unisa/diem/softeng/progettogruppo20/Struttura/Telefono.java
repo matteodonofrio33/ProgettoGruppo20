@@ -1,4 +1,3 @@
-
 package it.unisa.diem.softeng.progettogruppo20.Struttura;
 
 import static java.lang.Character.isLetter;
@@ -12,11 +11,22 @@ import java.util.List;
  * @date December 06, 2024
  * @version 1.0
  */
-
 public class Telefono extends Dato {
 
     public Telefono() {
         super();
+    }
+
+    @Override
+    public void aggiungiDato(String dato) {
+
+        if (dato != "" && (dato.length()==3 || dato.length()==9 || dato.length()==10)) {
+            this.getDati().add(dato);
+            System.out.println("Ho aggiunto" + dato);
+        }
+        else
+            this.getDati().add("");
+
     }
 
 }
