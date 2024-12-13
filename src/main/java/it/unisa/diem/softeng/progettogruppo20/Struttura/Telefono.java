@@ -1,5 +1,6 @@
 package it.unisa.diem.softeng.progettogruppo20.Struttura;
 
+import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
 import java.util.List;
 
@@ -19,6 +20,13 @@ public class Telefono extends Dato {
 
     @Override
     public void aggiungiDato(String dato) {
+        
+        for(int i=0; i<dato.length(); i++) {
+            if(!isDigit(dato.charAt(i))) {
+                this.getDati().add("");
+                return;
+            }
+        }
 
         if (dato != "" && (dato.length()==3 || dato.length()==9 || dato.length()==10)) {
             this.getDati().add(dato);

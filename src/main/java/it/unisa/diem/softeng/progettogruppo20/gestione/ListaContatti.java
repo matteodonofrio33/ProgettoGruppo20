@@ -33,63 +33,7 @@ public class ListaContatti {
         this.elenco = new TreeSet<Contatto>();
     }
 
-    private boolean verificaDuplicatiTelefono(String telefono1, String telefono2, String telefono3) {
 
-        boolean presente = false;
-
-        for (Contatto cnt : elenco) {
-            if (!telefono1.isEmpty() && (!telefono1.equals(cnt.getTel().getDati().get(0)))) {
-
-                if (cnt.getTel().contiene(telefono1)) {
-
-                    presente = true;
-                }
-            }
-
-            if (!telefono2.isEmpty() && (!telefono2.equals(cnt.getTel().getDati().get(1)))) {
-
-                if (cnt.getTel().contiene(telefono2)) {
-                    presente = true;
-                }
-            }
-
-            if (!telefono3.isEmpty() && (!telefono3.equals(cnt.getTel().getDati().get(2)))) {
-
-                if (cnt.getTel().contiene(telefono3)) {
-                    presente = true;
-                }
-            }
-
-        }
-
-        return presente;
-    }
-
-    private boolean verificaDuplicatiEmail(String email1, String email2, String email3) {
-
-        boolean presente = false;
-
-        for (Contatto cnt : elenco) {
-            if (!email1.isEmpty() && (!email1.equals(cnt.getEmail().getDati().get(0)))) {
-                if (cnt.getEmail().contiene(email1)) {
-                    presente = true;
-                }
-            }
-
-            if (!email2.isEmpty() && (!email2.equals(cnt.getEmail().getDati().get(1)))) {
-                if (cnt.getEmail().contiene(email2)) {
-                    presente = true;
-                }
-            }
-
-            if (!email3.isEmpty() && (!email3.equals(cnt.getEmail().getDati().get(2)))) {
-                if (cnt.getEmail().contiene(email3)) {
-                    presente = true;
-                }
-            }
-        }
-        return presente;
-    }
 
     /**
      * @brief Metodo che aggiunge un contatto alla lista.
@@ -157,9 +101,10 @@ public class ListaContatti {
      * @brief Modifica un contatto.
      *
      * See also: rimuoviContatto(), aggiungiContatto().
-     * 
-     * Il metodo verifica che i dati da modificare non siano presenti all'interno dello stesso contatto
-     * e nel caso in cui  non siano presenti procede con la modifica.
+     *
+     * Il metodo verifica che i dati da modificare non siano presenti
+     * all'interno dello stesso contatto e nel caso in cui non siano presenti
+     * procede con la modifica.
      *
      * @pre Il contatto è presente nella lista.
      * @post Il contatto viene modificato.
@@ -183,11 +128,10 @@ public class ListaContatti {
      */
     public boolean modificaContatto(Contatto c, String nomeNuovo, String cognomeNuovo, String telNuovo1, String telNuovo2, String telNuovo3, String emailNuova1, String emailNuova2, String emailNuova3) {
 
-        if (!verificaDuplicatiEmail(emailNuova1, emailNuova2, emailNuova3) && !verificaDuplicatiTelefono(telNuovo1, telNuovo2, telNuovo3)) {
-
-            rimuoviContatto(c);
-            aggiungiContatto(nomeNuovo, cognomeNuovo, telNuovo1, telNuovo2, telNuovo3, emailNuova1, emailNuova2, emailNuova3);
-        }
+        //if (!verificaDuplicatiEmail(emailNuova1, emailNuova2, emailNuova3) && !verificaDuplicatiTelefono(telNuovo1, telNuovo2, telNuovo3)) {
+        rimuoviContatto(c);
+        aggiungiContatto(nomeNuovo, cognomeNuovo, telNuovo1, telNuovo2, telNuovo3, emailNuova1, emailNuova2, emailNuova3);
+        //}
 
         return true;
     }
@@ -213,6 +157,5 @@ public class ListaContatti {
         }
         return true;
     }
-    
-    
+
 }
