@@ -19,24 +19,31 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Contaldo Luigi, Cocco Luigi, D'Errico Fabrizio, D'Onofrio Matteo
  */
 public class ListaContattiTest {
-    
+
+    private ListaContatti lista;
+
     public ListaContattiTest() {
     }
-    
+
     @BeforeAll
     public static void setUpClass() {
+
     }
-    
+
     @AfterAll
     public static void tearDownClass() {
     }
-    
+
     @BeforeEach
     public void setUp() {
+        lista = new ListaContatti();
+
     }
-    
+
     @AfterEach
     public void tearDown() {
+        lista.getElenco().clear();
+
     }
 
     /**
@@ -44,19 +51,12 @@ public class ListaContattiTest {
      */
     @Test
     public void testAggiungiContatto() {
-        System.out.println("aggiungiContatto");
-        String nome = "";
-        String cognome = "";
-        String telefono1 = "";
-        String telefono2 = "";
-        String telefono3 = "";
-        String email1 = "";
-        String email2 = "";
-        String email3 = "";
-        ListaContatti instance = new ListaContatti();
-        instance.aggiungiContatto(nome, cognome, telefono1, telefono2, telefono3, email1, email2, email3);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        lista = new ListaContatti();
+        lista.aggiungiContatto("Luigi", "Cocco", "1234", "4567", "7890", "luigi@gmail.com", "cocco@gmail.com", "luigicocco@gmail.com");
+
+        Contatto c = new Contatto("Luigi", "Cocco", "1234", "4567", "7890", "luigi@gmail.com", "cocco@gmail.com", "luigicocco@gmail.com");
+
+        assertTrue(lista.getElenco().contains(c));
     }
 
     /**
@@ -64,15 +64,12 @@ public class ListaContattiTest {
      */
     @Test
     public void testCercaContatto() {
-        System.out.println("cercaContatto");
-        String nome = "";
-        String cognome = "";
-        ListaContatti instance = new ListaContatti();
-        ListaContatti expResult = null;
-        ListaContatti result = instance.cercaContatto(nome, cognome);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        lista = new ListaContatti();
+        lista.aggiungiContatto("Fabrizio", "D'Errico", "1756", "9879", "1111", "fabrizio@gmail.com", "derrico@gmail.com", "fabder@gmail.com");
+
+        Contatto c = new Contatto("Fabrizio", "D'Errico", "1756", "9879", "1111", "fabrizio@gmail.com", "derrico@gmail.com", "fabder@gmail.com");
+
+        assertTrue(lista.cercaContatto("Fab", "D").getElenco().contains(c));
     }
 
     /**
@@ -80,12 +77,12 @@ public class ListaContattiTest {
      */
     @Test
     public void testRimuoviContatto() {
-        System.out.println("rimuoviContatto");
-        Contatto c = null;
-        ListaContatti instance = new ListaContatti();
-        instance.rimuoviContatto(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        lista = new ListaContatti();
+        Contatto c = new Contatto("Fabrizio", "D'Errico", "1756", "9879", "1111", "fabrizio@gmail.com", "derrico@gmail.com", "fabder@gmail.com");
+
+        lista.rimuoviContatto(c);
+
+        assertFalse(lista.cercaContatto("Fab", "D").getElenco().contains(c));
     }
 
     /**
@@ -93,22 +90,14 @@ public class ListaContattiTest {
      */
     @Test
     public void testModificaContatto() {
-        System.out.println("modificaContatto");
-        Contatto c = null;
-        String nomeNuovo = "";
-        String cognomeNuovo = "";
-        String telNuovo1 = "";
-        String telNuovo2 = "";
-        String telNuovo3 = "";
-        String emailNuova1 = "";
-        String emailNuova2 = "";
-        String emailNuova3 = "";
-        ListaContatti instance = new ListaContatti();
-        boolean expResult = false;
-        boolean result = instance.modificaContatto(c, nomeNuovo, cognomeNuovo, telNuovo1, telNuovo2, telNuovo3, emailNuova1, emailNuova2, emailNuova3);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+        lista = new ListaContatti();
+        Contatto c = new Contatto("Fabrizio", "D'Errico", "175655555", "988145879", "111111111", "fabrizio@gmail.com", "derrico@gmail.com", "fabder@gmail.com");
+
+        lista.aggiungiContatto("Fabrizio", "D'Errico", "175655555", "988145879", "111111111", "fabrizio@gmail.com", "derrico@gmail.com", "fabder@gmail.com");
+
+        assertTrue(lista.modificaContatto(c, "Matteo", "D'Onofrio", "124675009", "", "", "matteo@gmail.com", "", ""));
+
     }
 
     /**
@@ -116,13 +105,7 @@ public class ListaContattiTest {
      */
     @Test
     public void testGetElenco() {
-        System.out.println("getElenco");
-        ListaContatti instance = new ListaContatti();
-        Set<Contatto> expResult = null;
-        Set<Contatto> result = instance.getElenco();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -130,11 +113,10 @@ public class ListaContattiTest {
      */
     @Test
     public void testEliminaRubrica() {
-        System.out.println("eliminaRubrica");
-        ListaContatti instance = new ListaContatti();
-        instance.eliminaRubrica();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        lista = new ListaContatti();
+        lista.aggiungiContatto("Luigi", "Cocco", "1234", "4567", "7890", "luigi@gmail.com", "cocco@gmail.com", "luigicocco@gmail.com");
+
+        lista.eliminaRubrica();
+        assertNull(lista);
     }
-    
 }
