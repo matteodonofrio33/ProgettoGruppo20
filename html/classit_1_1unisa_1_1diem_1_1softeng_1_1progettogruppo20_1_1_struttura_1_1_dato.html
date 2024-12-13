@@ -90,7 +90,6 @@ $(function(){ initResizable(false); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1_struttura_1_1_dato-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">it.unisa.diem.softeng.progettogruppo20.Struttura.Dato Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -114,12 +113,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a86b4ee4b5030c828770f6b282faf967c" id="r_a86b4ee4b5030c828770f6b282faf967c"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86b4ee4b5030c828770f6b282faf967c">contiene</a> (String dato)</td></tr>
 <tr class="memdesc:a86b4ee4b5030c828770f6b282faf967c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo che controlla che la Stringa inserita in input sia contenuta nella lista.  <br /></td></tr>
 <tr class="separator:a86b4ee4b5030c828770f6b282faf967c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a1a93048ddb8f634c3bdc86c70648315e" id="r_a1a93048ddb8f634c3bdc86c70648315e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a93048ddb8f634c3bdc86c70648315e">aggiungiDato</a> (String dato)</td></tr>
-<tr class="memdesc:a1a93048ddb8f634c3bdc86c70648315e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo che aggiunge un dato all'interno della lista.  <br /></td></tr>
-<tr class="separator:a1a93048ddb8f634c3bdc86c70648315e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2a472936d3d33799e9c47f48fdcd9af" id="r_ad2a472936d3d33799e9c47f48fdcd9af"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2a472936d3d33799e9c47f48fdcd9af">aggiungiDato</a> (String dato)</td></tr>
+<tr class="memdesc:ad2a472936d3d33799e9c47f48fdcd9af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metodo che aggiunge un dato all'interno della lista.  <br /></td></tr>
+<tr class="separator:ad2a472936d3d33799e9c47f48fdcd9af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9ad40dbde1d91e3fd8007f3c766c0db4" name="a9ad40dbde1d91e3fd8007f3c766c0db4"></a>
@@ -143,8 +139,8 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1a93048ddb8f634c3bdc86c70648315e" name="a1a93048ddb8f634c3bdc86c70648315e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a93048ddb8f634c3bdc86c70648315e">&#9670;&#160;</a></span>aggiungiDato()</h2>
+<a id="ad2a472936d3d33799e9c47f48fdcd9af" name="ad2a472936d3d33799e9c47f48fdcd9af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2a472936d3d33799e9c47f48fdcd9af">&#9670;&#160;</a></span>aggiungiDato()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,7 +149,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void it.unisa.diem.softeng.progettogruppo20.Struttura.Dato.aggiungiDato </td>
+          <td class="memname">abstract void it.unisa.diem.softeng.progettogruppo20.Struttura.Dato.aggiungiDato </td>
           <td>(</td>
           <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>dato</em></span></td><td>)</td>
           <td></td>
@@ -161,7 +157,7 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">abstract</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -176,6 +172,8 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section invariant"><dt>Invariant</dt><dd>i dati già presenti nella LinkedList non devono essere modificati. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1_struttura_1_1_email.html#aa2cb9bccd3e94ca982bd459532e15eb8">it.unisa.diem.softeng.progettogruppo20.Struttura.Email</a>, and <a class="el" href="classit_1_1unisa_1_1diem_1_1softeng_1_1progettogruppo20_1_1_struttura_1_1_telefono.html#a538d98d36d6c5cb6f562844fe487d041">it.unisa.diem.softeng.progettogruppo20.Struttura.Telefono</a>.</p>
 
 </div>
 </div>
