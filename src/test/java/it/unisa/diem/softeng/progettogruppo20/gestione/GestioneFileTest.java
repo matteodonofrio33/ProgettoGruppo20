@@ -5,6 +5,7 @@
  */
 package it.unisa.diem.softeng.progettogruppo20.gestione;
 
+import it.unisa.diem.softeng.progettogruppo20.Struttura.Contatto;
 import java.io.File;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -37,6 +38,8 @@ public class GestioneFileTest {
         
         assertTrue(lista.equals(gf.importa(file)));
         
+        assertEquals(2, lista.getElenco().size());
+             
         file.delete();
     }
     

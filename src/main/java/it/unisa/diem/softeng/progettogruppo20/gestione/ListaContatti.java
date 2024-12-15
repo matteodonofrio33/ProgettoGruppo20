@@ -61,8 +61,9 @@ public class ListaContatti {
     /**
      * @brief Cerca i contatti contenenti le sottostringhe di cognome o nome.
      *
-     * @post lista di contatti che contiene i contatti cercati.
-     * @invariant La lista non deve essere modificata.
+     * @pre L'utente ha inserito almeno una sottostringa.
+     * @post Lista di contatti che contiene i contatti cercati.
+     * @invariant Il numero di contatti e il loro contenut non varia.
      *
      * @param[in] nome Nome o sottostringa del contatto da cercare.
      * @param[in] cognome Cognome o sottostringa del contatto da cercare.

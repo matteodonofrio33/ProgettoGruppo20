@@ -48,6 +48,11 @@ public class ListaContattiTest {
         Contatto c = new Contatto("Fabrizio", "D'Errico", "1756", "9879", "1111", "fabrizio@gmail.com", "derrico@gmail.com", "fabder@gmail.com");
 
         assertTrue(lista.cercaContatto("Fab", "D").getElenco().contains(c));
+        assertEquals(1, lista.getElenco().size());
+        
+        for(Contatto cont : lista.getElenco()) {  //test dell'invariante
+            assertTrue(cont.equals(c));
+        }
         
         lista.getElenco().clear();
     }
@@ -80,6 +85,8 @@ public class ListaContattiTest {
 
         assertTrue(lista.modificaContatto(c, "Matteo", "D'Onofrio", "124675009", "", "", "matteo@gmail.com", "", ""));
 
+        assertEquals(1, lista.getElenco().size()); //test dell'invariante
+        
         lista.getElenco().clear();
     }
 

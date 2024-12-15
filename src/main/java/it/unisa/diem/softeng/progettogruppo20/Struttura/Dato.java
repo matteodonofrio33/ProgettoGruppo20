@@ -34,7 +34,6 @@ public abstract class Dato {
      *
      * @pre La lista non è vuota.
      * @post Viene restituito un booleano.
-     * @invariant La lista non deve essere modificata.
      * @param[in] dato La stringa della quale verificare l'esistenza all'interno
      * della LinkedList.
      *

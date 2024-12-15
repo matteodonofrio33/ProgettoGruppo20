@@ -34,7 +34,7 @@ public class GestioneFile {
      * @brief Salva la lista dei contatti in un file di tipo .csv.
      * @pre listaContatti Non deve essere vuota.
      * @post Viene creato il file contente la listaContatti.
-     * @invariant la lista non viene modificata.
+     * @invariant La dimensione della lista non deve essere modificata.
      *
      * @param[in] listaContatti Lista in cui deve essere salvato il file.
      */
@@ -77,7 +77,6 @@ public class GestioneFile {
      */
     public ListaContatti importa(File file) throws IOException {
 
-        String nomi = this.fileName.split("[.]")[0];
         ListaContatti nr = new ListaContatti();
 
         try (Scanner s = new Scanner(new BufferedReader(new FileReader(file)))) {
