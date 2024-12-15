@@ -94,7 +94,7 @@
                      </padding>
                      <children>
                         <Button fx:id="rimuoviBtn" mnemonicParsing="false" onAction="#rimozioneContatto" prefHeight="31.0" prefWidth="74.0" text="Rimuovi" />
-                        <Button fx:id="aggiungiBtn" mnemonicParsing="false" onAction="#addContact" text="Aggiungi" />
+                        <Button fx:id="aggiungiBtn" mnemonicParsing="false" onAction="#aggContatto" text="Aggiungi" />
                         <Button fx:id="cercaBtn" mnemonicParsing="false" onAction="#cercaContatto" text="Cerca" />
                      </children>
                   </HBox>
